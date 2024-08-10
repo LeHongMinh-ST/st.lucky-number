@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tạo quà</h5>
+                <h5 class="modal-title">Tạo giải thưởng</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col">
                         <label for="name" class="col-form-label">
-                            Tên quà <span class="required">*</span>
+                            Tên giải thưởng <span class="required">*</span>
                         </label>
                         <input wire:model.live="name" type="text" id="name" {{ $name }} class="form-control">
                         @error('name')

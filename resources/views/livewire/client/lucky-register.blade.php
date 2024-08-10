@@ -18,7 +18,8 @@
                     <label for="name" class="col-form-label col-form-label-lg">
                         Họ và tên <span class="required">*</span>
                     </label>
-                    <input wire:model.live="name" type="text" id="name" value="{{ $name }}" class="form-control form-control-lg">
+                    <input wire:model.live="name" type="text" id="name" value="{{ $name }}"
+                           class="form-control form-control-lg">
                     @error('name')
                     <label id="error-name" class="validation-error-label text-danger"
                            for="name">{{ $message }}</label>
@@ -55,7 +56,8 @@
                     <label for="code_id" class="col-form-label col-form-label-lg">
                         CCCD/CMT <span class="required">*</span>
                     </label>
-                    <input wire:model.live="code_id" type="text" id="code_id" value="{{ $code_id }}" class="form-control form-control-lg">
+                    <input wire:model.live="code_id" type="text" id="code_id" value="{{ $code_id }}"
+                           class="form-control form-control-lg">
                     @error('code_id')
                     <label id="error-code_id" class="validation-error-label text-danger"
                            for="code_id">{{ $message }}</label>
@@ -70,7 +72,8 @@
                     <label for="phone" class="col-form-label col-form-label-lg">
                         Số điện thoại <span class="required">*</span>
                     </label>
-                    <input wire:model.live="phone" type="text" id="phone" value="{{ $phone }}" class="form-control  form-control-lg">
+                    <input wire:model.live="phone" type="text" id="phone" value="{{ $phone }}"
+                           class="form-control  form-control-lg">
                     @error('phone')
                     <label id="error-name" class="validation-error-label text-danger"
                            for="phone">{{ $message }}</label>
@@ -81,11 +84,14 @@
 
         <div class="row">
             <div class="col d-flex justify-content-end">
-                <button type="button" class="btn btn-primary" @click="$wire.submit()">Gửi</button>
+                <button type="button" class="btn btn-primary" @click="$wire.submit()">
+                    <i class="ph-telegram-logo"></i>
+                    Gửi
+                </button>
 
             </div>
         </div>
-    @elseif($state == 'success')
+    @else
         <div class="row">
             <div class="col">
                 <div class="card p-3 ">
@@ -95,38 +101,30 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-        </div>
         <div class="row">
             <div class="col">
                 <div class="card p-3 ">
-                    <div class="d-flex gap-2">
-                        <h3>Mã số may mắn của bạn là: {{ $memberId }}</h3>
+                    <h3>Xin chào: {{ $name }}</h3>
+                    <div>
+                        <p>CCCD/CMT: {{$code_id}}</p>
+                        <p>Ngày sinh: {{$dob}}</p>
+                        <p>Số điện thoại: {{$phone}}</p>
                     </div>
                 </div>
             </div>
         </div>
-    @else
-        <div class="row">
-            <div class="col">
-                <div class="card p-3 ">
-                    <div class="d-flex gap-2 align-items-center">
-                        <img src="{{asset('assets/images/login.jpg')}}" class="w-80px" alt="">
-                        <h3>Bạn đã đăng ký tham gia chương trình vòng quay mắn</h3>
-                    </div>
-                </div>
-            </div>
 
-        </div>
         <div class="row">
             <div class="col">
-                <div class="card p-3 ">
-                    <div class="d-flex gap-2">
-                        <h3>Mã số may mắn của bạn là: {{ $memberId }}</h3>
-                    </div>
+                <div class="card p-3 text-center">
+                    <h3>Mã số may mắn của bạn</h3>
+                    <div class="text-center lucky-number">{{ $memberId }}</div>
                 </div>
             </div>
         </div>
+
     @endif
 </div>
 

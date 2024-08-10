@@ -26,9 +26,9 @@
                 <thead>
                 <tr class="table-light">
                     <th>STT</th>
-                    <th>Tên quà</th>
+                    <th>Tên giải thưởng</th>
                     <th>Số lượng</th>
-                    <th>Số thứ tự</th>
+                    <th>Số thứ tự quay</th>
                     <th>Ngày tạo</th>
                     <th class="text-center">Hành động</th>
                 </tr>

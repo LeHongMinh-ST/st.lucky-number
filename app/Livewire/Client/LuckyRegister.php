@@ -85,8 +85,7 @@ class LuckyRegister extends Component
         // store
         $member = Member::where('code_id', $this->code_id)->first();
         if ($member) {
-            $this->memberId = $member->id;
-            $this->state = 'current';
+            $this->dispatch('alert', type: 'error', message: 'Bạn đã đăng ký và nhận mã dự thưởng!');
         } else {
             try {
                $member = Member::create([
@@ -96,12 +95,10 @@ class LuckyRegister extends Component
                     'dob' => Carbon::make($this->dob),
                     'campaign_id' => (int)$this->campaignId
                 ]);
-                $this->reset();
                 $this->memberId = $member->id;
-
                 $this->state = 'success';
             } catch (Exception $e) {
-                $this->dispatch('alert', type: 'error', message: 'Tạo mới thất bại!');
+                $this->dispatch('alert', type: 'error', message: 'Đăng ký thất bại!');
                 Log::error('Error create campaign', [
                     'method' => __METHOD__,
                     'message' => $e->getMessage(),

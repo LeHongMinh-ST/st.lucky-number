@@ -34,10 +34,6 @@ class GiftCreate extends Component
         $this->dispatch('close-modal-create-gift');
     }
 
-    public function openCreateGiftModal()
-    {
-        $this->reset();
-    }
 
     public function mount($campaignId)
     {
@@ -81,7 +77,7 @@ class GiftCreate extends Component
             $this->dispatch('refresh-gift');
         } catch (Exception $e) {
             $this->dispatch('alert', type: 'error', message: 'Tạo mới thất bại!');
-            Log::error('Error create campaign', [
+            Log::error('Error create gift', [
                 'method' => __METHOD__,
                 'message' => $e->getMessage(),
             ]);

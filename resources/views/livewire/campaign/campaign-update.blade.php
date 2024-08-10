@@ -26,7 +26,7 @@
 
             <li class="nav-item" role="presentation">
                 <a href="#js-tab2" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
-                    Phần thưởng
+                    Giải thưởng
                 </a>
             </li>
 

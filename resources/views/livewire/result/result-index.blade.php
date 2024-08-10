@@ -14,7 +14,11 @@
 {{--                    <button type="button" class="btn btn-danger btn-icon px-2" @click="$wire.$refresh">--}}
 {{--                        <i class="ph-warning px-1"></i><span>Đặt lại</span>--}}
 {{--                    </button>--}}
+                    <button type="button" class="btn btn-light btn-icon px-2" @click="$wire.$refresh">
+                        <i class="ph-arrows-clockwise px-1"></i><span>Tải lại</span>
+                    </button>
                 </div>
+
             </div>
         </div>
 
@@ -28,7 +32,7 @@
                     <th>CCCD/CMT</th>
                     <th>Số điện thoại</th>
                     <th>Ngày sinh</th>
-                    <th>Quà</th>
+                    <th>Giải thưởng</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -44,7 +48,7 @@
                         {{--                        <td>{{ $member->created_at->format('d/m/Y') }}</td>--}}
                     </tr>
                 @empty
-                    <x-table-empty :colspan="6"/>
+                    <x-table-empty :colspan="7"/>
                 @endforelse
                 </tbody>
             </table>

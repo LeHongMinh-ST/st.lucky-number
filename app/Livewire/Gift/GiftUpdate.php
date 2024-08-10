@@ -3,6 +3,7 @@
 namespace App\Livewire\Gift;
 
 use App\Models\Gift;
+use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -50,9 +51,11 @@ class GiftUpdate extends Component
         $this->giftId = $data['giftId'];
         $gift = Gift::find($this->giftId);
         $this->name = $gift->name;
+        $this->order = (int)$gift->order;
+        $this->quantity = (int)$gift->quantity;
     }
 
-    public function closeCreateGiftModal()
+    public function closeUpdateGiftModal()
     {
         $this->name = '';
         $this->dispatch('close-modal-update-gift');
@@ -63,4 +66,28 @@ class GiftUpdate extends Component
         $this->resetValidation($field);
     }
 
+    public function submit()
+    {
+        $this->validate();
+
+        // store
+        try {
+            Gift::where('id', $this->giftId)->update([
+                'name' => $this->name,
+                'quantity' => $this->quantity,
+                'order' => $this->order,
+            ]);
+            $this->dispatch('alert', type: 'success', message: 'Cập nhật thành công!');
+            $this->closeUpdateGiftModal();
+            $this->dispatch('refresh-gift');
+        } catch (Exception $e) {
+            $this->dispatch('alert', type: 'error', message: 'Cập nhật thất bại!');
+            Log::error('Error update gift', [
+                'method' => __METHOD__,
+                'message' => $e->getMessage(),
+            ]);
+        }
+
+        return null;
+    }
 }
