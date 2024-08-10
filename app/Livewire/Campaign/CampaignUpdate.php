@@ -8,6 +8,7 @@ use Livewire\Component;
 class CampaignUpdate extends Component
 {
     public string $name = '';
+    public string $key = '';
     public string $campaignId = '';
 
     public function render()
@@ -20,6 +21,7 @@ class CampaignUpdate extends Component
         $campaign = Campaign::query()->find($campaignId);
         if ($campaign) {
             $this->name = $campaign->name;
+            $this->key = $campaign->key;
             $this->campaignId = $campaign->id;
         }
     }

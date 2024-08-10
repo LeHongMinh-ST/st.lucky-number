@@ -3,6 +3,7 @@
        <div class="row">
            <div class="col-md-9 col-12">
                <h6 class="fw-semibold">{{$name}}</h6>
+               <p class="mb-3">Key: {{ $key }}</a></p>
                <p class="mb-3">Link đăng ký: <a href="{{ route('lucky.register', $campaignId) }}">{{ route('lucky.register', $campaignId) }}</a></p>
                <p class="mb-3">Link vòng quay: <a href="{{ route('lucky.number', $campaignId) }}">{{ route('lucky.number', $campaignId) }}</a></p>
            </div>
