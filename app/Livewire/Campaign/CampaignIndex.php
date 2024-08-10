@@ -15,7 +15,9 @@ class CampaignIndex extends Component
 
     public string $search = '';
 
-
+    protected $listeners = [
+        'deleteCampaign' => 'deleteCampaign',
+    ];
 
     public function render()
     {
@@ -26,5 +28,17 @@ class CampaignIndex extends Component
         return view('livewire.campaign.campaign-index')->with([
             'campaigns' => $campaigns,
         ]);
+    }
+
+    public function openDeleteModal(int $id): void
+    {
+        $this->campaignId = $id;
+        $this->dispatch('openDeleteModal');
+    }
+
+    public function deleteCampaign(): void
+    {
+        $campaign = Campaign::destroy($this->campaignId);
+        $this->dispatch('alert', type: 'success', message: 'Xóa chiến dịch thành công');
     }
 }

@@ -50,7 +50,7 @@
                                         <i class="ph-note-pencil px-1"></i>
                                         Chỉnh sửa
                                     </a>
-                                    <a type="button" @click="$wire.openDeleteModal({{ $campaign->id }})" href="#" class="dropdown-item">
+                                    <a type="button" @click="$wire.openDeleteModal({{ $campaign->id }})" class="dropdown-item">
                                         <i class="ph-trash px-1"></i>
                                         Xóa
                                     </a>
