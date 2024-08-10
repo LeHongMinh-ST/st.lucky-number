@@ -1,5 +1,7 @@
 <x-admin-layout>
-
+    <x-slot name="custom_js">
+        @vite(['resources/js/campaign/index.js'])
+    </x-slot>
     <x-slot name="header">
         <div class="page-header page-header-light shadow">
             <div class="page-header-content d-lg-flex">
@@ -37,3 +39,4 @@
         <livewire:campaign.campaign-index/>
     </div>
 </x-admin-layout>
+
