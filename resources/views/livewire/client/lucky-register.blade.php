@@ -1,135 +1,99 @@
-<div class="register-container">
+<div class="register-container ">
     @if($state == 'register')
-        <div class="row">
-            <div class="col">
-                <div class="card p-3 ">
-                    <div class="d-flex gap-2">
-                        <img src="{{asset('assets/images/login.jpg')}}" class="w-80px" alt="">
-                        <h3>Thí sinh điền thông tin tham gia Vòng quay may mắn </h3>
-                    </div>
-                </div>
+        <div class="card">
+            <div class="card-body p-md-5 p-2">
+                <div class="row flex-md-row-reverse">
 
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="card p-3 ">
-                    <label for="name" class="col-form-label col-form-label-lg">
-                        Họ và tên <span class="required">*</span>
-                    </label>
-                    <input wire:model.live="name" type="text" id="name" value="{{ $name }}"
-                           class="form-control form-control-lg">
-                    @error('name')
-                    <label id="error-name" class="validation-error-label text-danger"
-                           for="name">{{ $message }}</label>
-                    @enderror
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="card p-3 ">
-                    <label for="dob" class="col-form-label col-form-label-lg">
-                        Ngày sinh <span class="required">*</span>
-                    </label>
-                    <div class="input-group">
+                    <div class="col-md-6 col-12">
+                        <div class="form-register">
+                            <div class="text-center mb-3">
+                                <div class="d-inline-flex align-items-center gap-1 justify-content-center mb-4 mt-2">
+                                    <img src="{{asset('assets/images/VNUA.png')}}" class="h-64px" alt="">
+                                    <img src="{{asset('assets/images/FITA.png')}}" class="h-64px" alt="">
+                                    {{--                                <img src="{{asset('assets/images/logoST.jpg')}}" class="h-64px" alt="">--}}
+                                </div>
+                                <span class="d-block text-muted">Vòng quay may mắn</span>
+                                <h5 class="mb-0">Thí sinh điền thông tin tham gia Vòng quay may mắn</h5>
+                            </div>
+                            <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
+                                <label for="name" class="col-form-label ">
+                                    Họ và tên <span class="required">*</span>
+                                </label>
+                                <input wire:model.live="name" type="text" id="name" value="{{ $name }}"
+                                       class="form-control ">
+                                @error('name')
+                                <label id="error-name" class="validation-error-label text-danger"
+                                       for="name">{{ $message }}</label>
+                                @enderror
+                            </div>
+                            <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
+                                <label for="dob" class="col-form-label ">
+                                    Ngày sinh <span class="required">*</span>
+                                </label>
+                                <div class="input-group">
                     <span class="input-group-text">
 												<i class="ph-calendar"></i>
 											</span>
-                        <input wire:model="dob" type="text" id="dob" value="{{ $this->dob }}"
-                               class="form-control datepicker-basic datepicker-input">
+                                    <input wire:model="dob" type="text" id="dob" value="{{ $this->dob }}"
+                                           class="form-control datepicker-basic datepicker-input">
+                                </div>
+
+                                @error('dob')
+                                <label id="error-dob" class="validation-error-label text-danger"
+                                       for="dob">{{ $message }}</label>
+                                @enderror
+                            </div>
+                            <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
+                                <label for="code_id" class="col-form-label ">
+                                    Số căn cước công dân/chứng minh nhân dân <span class="required">*</span>
+                                </label>
+                                <input wire:model.live="code_id" type="text" id="code_id" value="{{ $code_id }}"
+                                       class="form-control">
+                                @error('code_id')
+                                <label id="error-code_id" class="validation-error-label text-danger"
+                                       for="code_id">{{ $message }}</label>
+                                @enderror
+                            </div>
+                            <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
+                                <label for="phone" class="col-form-label ">
+                                    Số điện thoại <span class="required">*</span>
+                                </label>
+                                <input wire:model.live="phone" type="text" id="phone" value="{{ $phone }}"
+                                       class="form-control">
+                                @error('phone')
+                                <label id="error-name" class="validation-error-label text-danger"
+                                       for="phone">{{ $message }}</label>
+                                @enderror
+                            </div>
+                            <div class="mt-3 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5 d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary" @click="$wire.submit()">
+                                    <i class="ph-telegram-logo"></i>
+                                    Gửi
+                                </button>
+                            </div>
+                        </div>
                     </div>
-
-                    @error('dob')
-                    <label id="error-dob" class="validation-error-label text-danger"
-                           for="dob">{{ $message }}</label>
-                    @enderror
+                    <div class="col-md-6 col-12 d-flex justify-content-center align-items-center">
+                        <div class="register-image-wrapper">
+                            <img class="login-image" src="{{asset('assets/images/login.jpg')}}" alt="login">
+                            <div class="line"></div>
+                            <div class="login-note text-muted">
+                                Đăng ký nhận số may mắn để nhận những phần quà hấp dẫn từ <br> Học viện Nông nghiệp Việt
+                                Nam
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="card p-3 ">
-                    <label for="code_id" class="col-form-label col-form-label-lg">
-                        CCCD/CMT <span class="required">*</span>
-                    </label>
-                    <input wire:model.live="code_id" type="text" id="code_id" value="{{ $code_id }}"
-                           class="form-control form-control-lg">
-                    @error('code_id')
-                    <label id="error-code_id" class="validation-error-label text-danger"
-                           for="code_id">{{ $message }}</label>
-                    @enderror
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="card p-3 ">
-                    <label for="phone" class="col-form-label col-form-label-lg">
-                        Số điện thoại <span class="required">*</span>
-                    </label>
-                    <input wire:model.live="phone" type="text" id="phone" value="{{ $phone }}"
-                           class="form-control  form-control-lg">
-                    @error('phone')
-                    <label id="error-name" class="validation-error-label text-danger"
-                           for="phone">{{ $message }}</label>
-                    @enderror
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col d-flex justify-content-end">
-                <button type="button" class="btn btn-primary" @click="$wire.submit()">
-                    <i class="ph-telegram-logo"></i>
-                    Gửi
-                </button>
-
             </div>
         </div>
     @else
-        <div class="row">
-            <div class="col">
-                <div class="card p-3 ">
-                    <div class="d-flex gap-2 align-items-center">
-                        <img src="{{asset('assets/images/login.jpg')}}" class="w-80px" alt="">
-                        <h3>Đăng ký thành công </h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="card p-3 ">
-                    <h3>Xin chào: {{ $name }}</h3>
-                    <div>
-                        <p>CCCD/CMT: {{$code_id}}</p>
-                        <p>Ngày sinh: {{$dob}}</p>
-                        <p>Số điện thoại: {{$phone}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="card p-3 text-center">
-                    <h3>Mã số may mắn của bạn</h3>
-                    <div class="text-center lucky-number">{{ $memberId }}</div>
-                </div>
-            </div>
-        </div>
-
+        <livewire:client.lucky-register-success  memberId="{{$memberId}}" name="{{$name}}" code_id="{{$code_id}}" dob="{{$dob}}" phone="{{$phone}}" />
     @endif
 </div>
 
 @script
 <script>
+
     $(document).ready(function () {
         const dpBasicElementStartDate = document.querySelector('#dob');
         if (dpBasicElementStartDate) {
@@ -148,7 +112,6 @@
                 Livewire.dispatch('update-dob', { value: formattedDate })
             });
         }
-
 
 
     });

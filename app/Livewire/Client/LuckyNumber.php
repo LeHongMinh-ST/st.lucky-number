@@ -17,6 +17,8 @@ class LuckyNumber extends Component
 
     public int|string $numberLucky = "";
 
+    public array $numberMiss = [];
+
 
     protected $listeners = [
       'endLoading' => 'endLoading'
@@ -68,13 +70,17 @@ class LuckyNumber extends Component
             $resultsMemberId = $results->pluck('member_id')->toArray();
 
             $memberIds = Member::query()
-                ->whereNotIn('id', $resultsMemberId)
+                ->whereNotIn('id', [...$resultsMemberId, ...$this->numberMiss])
                 ->where('campaign_id', $this->campaignId)
                 ->get()->pluck('id')->toArray();
-
+            if (count($memberIds) === 0) {
+                $this->dispatch('alert', type: 'error', message: 'Hết người chơi!');
+                $this->isLoading = false;
+                return;
+            }
             $key = array_rand($memberIds);
             $this->numberLucky = $memberIds[$key];
-
+            $this->numberMiss[] = $this->numberLucky;
             $this->dispatch('start-lucky', ['number' => $this->numberLucky]);
         }
     }

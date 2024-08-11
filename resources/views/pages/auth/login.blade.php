@@ -21,7 +21,8 @@
                         <form action="{{route('handleLogin')}}" class="login-form" method="POST">
                             @csrf
                             <div class="text-center mb-3">
-                                <div class="d-inline-flex align-items-center justify-content-center mb-4 mt-2">
+                                <div class="d-inline-flex align-items-center gap-1 justify-content-center mb-4 mt-2">
+                                    <img src="{{asset('assets/images/VNUA.png')}}" class="h-64px" alt="">
                                     <img src="{{asset('assets/images/FITA.png')}}" class="h-64px" alt="">
                                     <img src="{{asset('assets/images/logoST.jpg')}}" class="h-64px" alt="">
                                 </div>

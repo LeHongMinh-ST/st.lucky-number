@@ -13,6 +13,7 @@
 <script src="{{ asset('assets/js/vendor/pickers/datepicker.min.js') }}"></script>
 <script src="{{ asset('assets/js/vendor/notifications/noty.min.js') }}"></script>
 <script src="{{ asset('assets/js/vendor/ui/fullcalendar/main.min.js') }}"></script>
+<script src="{{ asset('assets/js/html2canvas.js') }}"></script>
 <script src="{{ asset('assets/js/app.js') }}"></script>
 
 {{--<!-- /theme JS files -->--}}

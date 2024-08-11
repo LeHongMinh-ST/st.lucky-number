@@ -8,9 +8,12 @@
             </div>
             <div class="d-flex gap-2">
                 <div>
-                    <button type="button" class="btn btn-success btn-icon px-2" @click="$wire.export()">
-                        <i class="ph-microsoft-excel-logo px-1"></i><span>Xuất excel</span>
-                    </button>
+                    @if(count($members)> 0)
+                        <button type="button" class="btn btn-success btn-icon px-2" @click="$wire.export()">
+                            <i class="ph-microsoft-excel-logo px-1"></i><span>Xuất excel</span>
+                        </button>
+                    @endif
+
 {{--                    <button type="button" class="btn btn-danger btn-icon px-2" @click="$wire.$refresh">--}}
 {{--                        <i class="ph-warning px-1"></i><span>Đặt lại</span>--}}
 {{--                    </button>--}}
