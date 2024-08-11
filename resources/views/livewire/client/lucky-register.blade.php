@@ -9,11 +9,10 @@
                             <div class="text-center mb-3">
                                 <div class="d-inline-flex align-items-center gap-1 justify-content-center mb-4 mt-2">
                                     <img src="{{asset('assets/images/VNUA.png')}}" class="h-64px" alt="">
-                                    <img src="{{asset('assets/images/FITA.png')}}" class="h-64px" alt="">
                                     {{--                                <img src="{{asset('assets/images/logoST.jpg')}}" class="h-64px" alt="">--}}
                                 </div>
-                                <span class="d-block text-muted">Vòng quay may mắn</span>
-                                <h5 class="mb-0">Thí sinh điền thông tin tham gia Vòng quay may mắn</h5>
+                                <span class="d-block text-muted mb-3">CHƯƠNG TRÌNH VÒNG QUAY MAY MẮN</span>
+                                <h4 class="mb-0">Thí sinh điền, gửi thông tin cá nhân để nhận được mã số may mắn</h4>
                             </div>
                             <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
                                 <label for="name" class="col-form-label ">
