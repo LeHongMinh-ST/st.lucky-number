@@ -4,12 +4,10 @@
         <th>STT</th>
         <th>Họ và tên</th>
         <th>Ngày sinh</th>
-
         <th>CCCD/CMT</th>
         <th>Số điện thoại</th>
         <th  class="text-center">Mã số may mắn</th>
 
-        <th>Giải thưởng</th>
     </tr>
     </thead>
     <tbody>
@@ -21,7 +19,6 @@
             <td>{{ $member->code_id }}</td>
             <td>{{ $member->phone }}</td>
             <td class="text-center">{{ $member->id }}</td>
-            <td class="bold">{{ $member->giftResult->gift->name }}</td>
         </tr>
     @endforeach
     </tbody>

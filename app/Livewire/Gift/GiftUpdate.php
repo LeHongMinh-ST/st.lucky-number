@@ -24,10 +24,10 @@ class GiftUpdate extends Component
     public string $name = '';
 
     #[Validate(as: 'Số lượng')]
-    public int $quantity = 1;
+    public int|string $quantity = '';
 
     #[Validate(as: 'Số thứ tự')]
-    public int $order = 0;
+    public int|string $order = '';
 
 
     public function rules(): array
@@ -51,8 +51,8 @@ class GiftUpdate extends Component
         $this->giftId = $data['giftId'];
         $gift = Gift::find($this->giftId);
         $this->name = $gift->name;
-        $this->order = (int)$gift->order;
-        $this->quantity = (int)$gift->quantity;
+        $this->order = $gift->order;
+        $this->quantity = $gift->quantity;
     }
 
     public function closeUpdateGiftModal()

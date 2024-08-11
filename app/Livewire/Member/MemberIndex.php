@@ -3,9 +3,11 @@
 namespace App\Livewire\Member;
 
 use App\Common\Constants;
+use App\Exports\MemberExport;
 use App\Models\Member;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MemberIndex extends Component
 {
@@ -27,6 +29,11 @@ class MemberIndex extends Component
     public function mount($campaignId)
     {
         $this->campaignId = $campaignId;
+    }
+
+    public function export()
+    {
+        return Excel::download(new MemberExport($this->campaignId), 'ds-nguoi-choi.xlsx');
     }
 
 }

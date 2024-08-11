@@ -1,4 +1,4 @@
-<div id="create-gift" wire:ignore.self class="modal fade" tabindex="-1" aria-modal="true" role="dialog">
+<div id="create-gift" wire:ignore.self class="modal fade" >
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -24,7 +24,7 @@
                         <label for="quantity" class="col-form-label">
                             Số lượng
                         </label>
-                        <input wire:model.live="quantity" type="number" id="quantity" class="form-control">
+                        <input wire:model.live="quantity" type="number" value="{{$quantity}}" id="quantity" class="form-control">
                         @error('quantity')
                         <label id="error-quantity" class="validation-error-label text-danger"
                                for="quantity">{{ $message }}</label>
@@ -37,7 +37,7 @@
                         <label for="order" class="col-form-label">
                             Số thứ tự
                         </label>
-                        <input wire:model.live="order" type="number" id="order" class="form-control">
+                        <input wire:model.live="order" type="number" id="order" value="{{$order}}" class="form-control">
                         @error('order')
                         <label id="error-order" class="validation-error-label text-danger"
                                for="quantity">{{ $message }}</label>
@@ -47,17 +47,10 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-link"  @click="$wire.closeCreateGiftModal()">Đóng</button>
-                <button type="button" class="btn btn-primary" @click="$wire.submit()">Lưu</button>
+                <button type="button" class="btn btn-link"  wire:click="closeCreateGiftModal()">Đóng</button>
+                <button type="button" class="btn btn-primary" wire:click="submit()">Lưu</button>
             </div>
         </div>
     </div>
 </div>
-@script
-<script>
 
-    $wire.on('close-modal-create-gift', () => {
-        $('#create-gift').modal('hide')
-    })
-</script>
-@endscript

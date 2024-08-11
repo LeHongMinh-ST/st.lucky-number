@@ -30,11 +30,11 @@
                 <thead>
                 <tr class="table-light">
                     <th>STT</th>
-                    <th  class="text-center">Mã số dự thưởng</th>
                     <th>Họ và tên</th>
+                    <th>Ngày sinh</th>
                     <th>CCCD/CMT</th>
                     <th>Số điện thoại</th>
-                    <th>Ngày sinh</th>
+                    <th  class="text-center">Mã số dự thưởng</th>
                     <th>Giải thưởng</th>
                 </tr>
                 </thead>
@@ -42,11 +42,11 @@
                 @forelse($members as $member)
                     <tr>
                         <td>{{ $loop->index + 1 + $members->perPage() * ($members->currentPage() - 1)   }}</td>
-                        <td class="text-center">{{ $member->id }}</td>
                         <td>{{ $member->name }}</td>
+                        <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
                         <td>{{ $member->code_id }}</td>
                         <td>{{ $member->phone }}</td>
-                        <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
+                        <td class="text-center">{{ $member->id }}</td>
                         <td class="bold">{{ $member->giftResult->gift->name }}</td>
                         {{--                        <td>{{ $member->created_at->format('d/m/Y') }}</td>--}}
                     </tr>

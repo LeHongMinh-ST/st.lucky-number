@@ -77,7 +77,7 @@
                             <img class="login-image" src="{{asset('assets/images/login.jpg')}}" alt="login">
                             <div class="line"></div>
                             <div class="login-note text-muted">
-                                Đăng ký nhận số may mắn để nhận những phần quà hấp dẫn từ <br> Học viện Nông nghiệp Việt
+                                Đăng ký nhận mã số may mắn để nhận những phần quà hấp dẫn từ <br> Học viện Nông nghiệp Việt
                                 Nam
                             </div>
                         </div>

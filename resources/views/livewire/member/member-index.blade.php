@@ -8,6 +8,11 @@
             </div>
             <div class="d-flex gap-2">
                 <div>
+                    @if(count($members)> 0)
+                        <button type="button" class="btn btn-success btn-icon px-2" @click="$wire.export()">
+                            <i class="ph-microsoft-excel-logo px-1"></i><span>Xuất excel</span>
+                        </button>
+                    @endif
                     <button type="button" class="btn btn-light btn-icon px-2" @click="$wire.$refresh">
                         <i class="ph-arrows-clockwise px-1"></i><span>Tải lại</span>
                     </button>
@@ -20,23 +25,25 @@
                 <thead>
                 <tr class="table-light">
                     <th>STT</th>
-                    <th  class="text-center">Mã số dự thưởng</th>
                     <th>Họ và tên</th>
+                    <th>Ngày sinh</th>
                     <th>CCCD/CMT</th>
                     <th>Số điện thoại</th>
-                    <th>Ngày sinh</th>
+                    <th class="text-center">Mã số dự thưởng</th>
+
                 </tr>
                 </thead>
                 <tbody>
                 @forelse($members as $member)
                     <tr>
                         <td>{{ $loop->index + 1 + $members->perPage() * ($members->currentPage() - 1)   }}</td>
-                        <td class="text-center">{{ $member->id }}</td>
                         <td>{{ $member->name }}</td>
+                        <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
+
                         <td>{{ $member->code_id }}</td>
                         <td>{{ $member->phone }}</td>
-                        <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
-{{--                        <td>{{ $member->created_at->format('d/m/Y') }}</td>--}}
+                        <td class="text-center">{{ $member->id }}</td>
+
                     </tr>
                 @empty
                     <x-table-empty :colspan="6"/>

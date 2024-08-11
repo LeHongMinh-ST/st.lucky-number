@@ -1,4 +1,4 @@
-<div id="update-gift" wire:ignore.self class="modal fade" tabindex="-1" aria-modal="true" role="dialog">
+<div id="update-gift" wire:ignore.self class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,7 +12,7 @@
                         <label for="name" class="col-form-label">
                             Tên giải thưởng <span class="required">*</span>
                         </label>
-                        <input wire:model.live="name" type="text" id="name" value="{{$name}}" class="form-control">
+                        <input wire:model.live="name" type="text" id="name" value="{{$name }}" class="form-control">
                         @error('name')
                         <label id="error-name" class="validation-error-label text-danger"
                                for="name">{{ $message }}</label>
@@ -53,11 +53,4 @@
         </div>
     </div>
 </div>
-@script
-<script>
 
-    $wire.on('close-modal-update-gift', () => {
-        $('#update-gift').modal('hide')
-    })
-</script>
-@endscript

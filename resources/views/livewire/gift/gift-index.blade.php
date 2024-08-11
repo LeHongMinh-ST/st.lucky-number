@@ -9,7 +9,7 @@
             <div class="d-flex gap-2">
                 <div>
 
-                    <button  type="button" class="btn btn-primary btn-icon px-2" @click="$wire.openCreateModal">
+                    <button  type="button" class="btn btn-primary btn-icon px-2" @click="$wire.openCreateModal()">
                         <i class="ph-plus-circle px-1"></i><span>Thêm mới</span>
                     </button>
                 </div>
@@ -47,11 +47,11 @@
                                     <i class="ph-list"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
-                                    <a href="#"  @click="$wire.openUpdateModal({{ $gift->id }})" type="button"  class="dropdown-item">
+                                    <a href="#"  wire:click="openUpdateModal({{ $gift->id }})" type="button"  class="dropdown-item">
                                         <i class="ph-note-pencil px-1"></i>
                                         Chỉnh sửa
                                     </a>
-                                    <a type="button" @click="$wire.openDeleteModal({{ $gift->id }})" href="#" class="dropdown-item">
+                                    <a type="button" wire:click="openDeleteModal({{ $gift->id }})" href="#" class="dropdown-item">
                                         <i class="ph-trash px-1"></i>
                                         Xóa
                                     </a>
@@ -74,19 +74,19 @@
 </div>
 @script
 <script>
-
-    $wire.on('open-update-gift-modal', () => {
-        $('#update-gift').modal('show')
-    });
-
-    $wire.on('open-create-gift-modal', () => {
+    window.addEventListener('open-create-gift-modal', () => {
         $('#create-gift').modal('show')
-    });
-
-    $wire.on('close-modal-create-gift', () => {
-        $('#create-gift').modal('hide')
+    })
+    window.addEventListener('open-update-gift-modal', () => {
+        $('#update-gift').modal('show')
     })
 
+    window.addEventListener('close-modal-create-gift', () => {
+        $('#create-gift').modal('hide')
+    })
+    window.addEventListener('close-modal-update-gift', () => {
+        $('#update-gift').modal('hide')
+    })
     window.addEventListener('openDeleteGiftModal', () => {
         new swal({
             title: "Bạn có chắc chắn?",

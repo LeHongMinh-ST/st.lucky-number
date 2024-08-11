@@ -29,8 +29,6 @@ class GiftCreate extends Component
     public function closeCreateGiftModal()
     {
         $this->name = '';
-        $this->reset();
-
         $this->dispatch('close-modal-create-gift');
     }
 
@@ -52,6 +50,9 @@ class GiftCreate extends Component
                 'required',
                 'min:1'
             ],
+            'order' => [
+
+            ]
         ];
     }
 

@@ -36,7 +36,7 @@
                         </div>
                         <div class="info-lucky-number text-center mt-5">
                             <div class="lucky-number-title">
-                                <h5>Số may mắn của bạn</h5>
+                                <h5>Mã số may mắn của bạn</h5>
                             </div>
                             <div class="lucky-number-success" id="lucky-number">
                                 {{$memberId}}
