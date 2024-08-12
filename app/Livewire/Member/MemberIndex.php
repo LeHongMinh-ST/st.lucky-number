@@ -21,7 +21,9 @@ class MemberIndex extends Component
     {
         $members = Member::query()
             ->search($this->search)
-            ->where('campaign_id', $this->campaignId)->paginate(Constants::PER_PAGE_ADMIN);
+            ->where('campaign_id', $this->campaignId)
+            ->order('created_at', 'desc')
+            ->paginate(Constants::PER_PAGE_ADMIN);
 
         return view('livewire.member.member-index', [
             'members' => $members,
