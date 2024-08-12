@@ -18,20 +18,27 @@
                             <img src="{{asset('assets/images/VNUA.png')}}" class="h-64px" alt="">
                             {{--                                <img src="{{asset('assets/images/logoST.jpg')}}" class="h-64px" alt="">--}}
                         </div>
-                        <span class="d-block text-muted mb-3">CHƯƠNG TRÌNH VÒNG QUAY MAY MẮN</span>
-                        <h5 class="mb-0">Đăng ký thành công <i class="ph-check-circle"></i></h5>
+                        <h5 class="mb-3">CHƯƠNG TRÌNH HỌC BỔNG NĂM 2024</h5>
+                        <h5 class=" mb-3">Đăng ký thành công <i class="ph-check-circle"></i></h5>
+
                     </div>
                     <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
                         <div class="info-general">
                             <div class="info-name">
                                 <p style="font-size: 24px"> Xin chào bạn <b style="font-size: 36px">{{ $name }}</b>
                                 </p>
-                                <p>Cám ơn bạn đã đăng ký tham gia chương trình vòng quay may mắn! Dưới đây là thông tin đăng ký và mã số may mắn của bạn:</p>
+                                <p>Cám ơn bạn đã đăng ký tham gia chương trình học bổng năm 2024 của Học viện Nông nghiệp Việt Nam!
+                                    <br> Dưới đây là thông tin đăng ký và mã số may mắn của bạn:</p>
                             </div>
                             <div class="info-other">
                                 <p>Ngày sinh: {{ $dob }}</p>
                                 <p>CCCD/CMT: {{$code_id}}</p>
                                 <p>Số điện thoại: {{ $phone }}</p>
+                                <p>Các chương trình học bổng đã đăng ký:</p>
+                                @foreach($scholarships as $item)
+                                    <p>{{$scholarshipsLabel[$item]}}</p>
+
+                                @endforeach
                             </div>
                         </div>
                         <div class="info-lucky-number text-center mt-5">

@@ -28,7 +28,6 @@ class LuckyRegister extends Component
     #[Validate(as: 'số điện thoại')]
     public string $phone = '';
 
-    #[Validate(as: 'học bổng')]
     public array $scholarships = [];
 
     public function rules(): array

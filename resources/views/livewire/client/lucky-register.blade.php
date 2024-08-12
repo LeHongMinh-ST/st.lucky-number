@@ -21,8 +21,8 @@
                                 <input wire:model.live="name" type="text" id="name" value="{{ $name }}"
                                        class="form-control">
                                 @error('name')
-                                    <label id="error-name" class="validation-error-label text-danger"
-                                           for="name">{{ $message }}</label>
+                                <label id="error-name" class="validation-error-label text-danger"
+                                       for="name">{{ $message }}</label>
                                 @enderror
                             </div>
                             <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
@@ -38,8 +38,8 @@
                                 </div>
 
                                 @error('dob')
-                                    <label id="error-dob" class="validation-error-label text-danger"
-                                           for="dob">{{ $message }}</label>
+                                <label id="error-dob" class="validation-error-label text-danger"
+                                       for="dob">{{ $message }}</label>
                                 @enderror
                             </div>
                             <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
@@ -49,8 +49,8 @@
                                 <input wire:model.live="code_id" type="text" id="code_id" value="{{ $code_id }}"
                                        class="form-control">
                                 @error('code_id')
-                                    <label id="error-code_id" class="validation-error-label text-danger"
-                                           for="code_id">{{ $message }}</label>
+                                <label id="error-code_id" class="validation-error-label text-danger"
+                                       for="code_id">{{ $message }}</label>
                                 @enderror
                             </div>
                             <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
@@ -60,8 +60,8 @@
                                 <input wire:model.live="phone" type="text" id="phone" value="{{ $phone }}"
                                        class="form-control">
                                 @error('phone')
-                                    <label id="error-name" class="validation-error-label text-danger"
-                                           for="phone">{{ $message }}</label>
+                                <label id="error-name" class="validation-error-label text-danger"
+                                       for="phone">{{ $message }}</label>
                                 @enderror
                             </div>
                             <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
@@ -71,48 +71,65 @@
                                 {{-- <input wire:model.live="phone" type="text" id="phone" value="{{ $phone }}" --}}
                                 {{--       class="form-control"> --}}
                                 <div class="d-flex align-items-center">
-                                    <input type="checkbox" value="hoc_bong_du_hoc_nuoc_ngoai" wire:model="scholarships" id="hoc_bong_du_hoc_nuoc_ngoai">
-                                    <label class="ms-2" for="hoc_bong_du_hoc_nuoc_ngoai">Học bổng du học nước ngoài</label>
+                                    <input type="checkbox" value="hoc_bong_du_hoc_nuoc_ngoai" wire:model="scholarships"
+                                           id="hoc_bong_du_hoc_nuoc_ngoai">
+                                    <label class="ms-2" for="hoc_bong_du_hoc_nuoc_ngoai">Học bổng du học nước
+                                        ngoài</label>
                                 </div>
 
                                 <div class="d-flex align-items-center">
-                                    <input type="checkbox" value="hoc_bong_sinh_vien_tai_nang" wire:model="scholarships" id="hoc_bong_sinh_vien_tai_nang">
-                                    <label class="ms-2" for="hoc_bong_sinh_vien_tai_nang">Học bổng sinh viên tài năng</label>
+                                    <input type="checkbox" value="hoc_bong_sinh_vien_tai_nang" wire:model="scholarships"
+                                           id="hoc_bong_sinh_vien_tai_nang">
+                                    <label class="ms-2" for="hoc_bong_sinh_vien_tai_nang">Học bổng sinh viên tài
+                                        năng</label>
                                 </div>
 
                                 <div class="d-flex align-items-center">
-                                    <input type="checkbox" value="hoc_bong_toi_yeu_que_huong" wire:model="scholarships" id="hoc_bong_toi_yeu_que_huong">
-                                    <label class="ms-2" for="hoc_bong_toi_yeu_que_huong">Học bổng tôi yêu quê hương</label>
+                                    <input type="checkbox" value="hoc_bong_toi_yeu_que_huong" wire:model="scholarships"
+                                           id="hoc_bong_toi_yeu_que_huong">
+                                    <label class="ms-2" for="hoc_bong_toi_yeu_que_huong">Học bổng tôi yêu quê
+                                        hương</label>
                                 </div>
 
                                 <div class="d-flex align-items-center">
-                                    <input type="checkbox" value="hoc_bong_toi_yeu_hvn" wire:model="scholarships" id="hoc_bong_toi_yeu_hvn">
+                                    <input type="checkbox" value="hoc_bong_toi_yeu_hvn" wire:model="scholarships"
+                                           id="hoc_bong_toi_yeu_hvn">
                                     <label class="ms-2" for="hoc_bong_toi_yeu_hvn">Học bổng tôi yêu HVN</label>
                                 </div>
 
                                 <div class="d-flex align-items-center">
-                                    <input type="checkbox" value="hoc_bong_sinh_vien_toan_cau" wire:model="scholarships" id="hoc_bong_sinh_vien_toan_cau">
-                                    <label class="ms-2" for="hoc_bong_sinh_vien_toan_cau">Học bổng sinh viên toàn cầu</label>
+                                    <input type="checkbox" value="hoc_bong_sinh_vien_toan_cau" wire:model="scholarships"
+                                           id="hoc_bong_sinh_vien_toan_cau">
+                                    <label class="ms-2" for="hoc_bong_sinh_vien_toan_cau">Học bổng sinh viên toàn
+                                        cầu</label>
                                 </div>
 
                                 <div class="d-flex align-items-center">
-                                    <input type="checkbox" value="hoc_bong_khoi_nghiep_vnua" wire:model="scholarships" id="hoc_bong_khoi_nghiep_vnua">
-                                    <label class="ms-2" for="hoc_bong_khoi_nghiep_vnua">Học bổng khởi nghiệp VNUA</label>
+                                    <input type="checkbox" value="hoc_bong_khoi_nghiep_vnua" wire:model="scholarships"
+                                           id="hoc_bong_khoi_nghiep_vnua">
+                                    <label class="ms-2" for="hoc_bong_khoi_nghiep_vnua">Học bổng khởi nghiệp
+                                        VNUA</label>
                                 </div>
 
                                 <div class="d-flex align-items-center">
-                                    <input type="checkbox" value="hoc_bong_thap_sang_uoc_mo_nong_nghiep" wire:model="scholarships" id="hoc_bong_thap_sang_uoc_mo_nong_nghiep">
-                                    <label class="ms-2" for="hoc_bong_thap_sang_uoc_mo_nong_nghiep">Học bổng thắp sáng ước mơ nông nghiệp</label>
+                                    <input type="checkbox" value="hoc_bong_thap_sang_uoc_mo_nong_nghiep"
+                                           wire:model="scholarships" id="hoc_bong_thap_sang_uoc_mo_nong_nghiep">
+                                    <label class="ms-2" for="hoc_bong_thap_sang_uoc_mo_nong_nghiep">Học bổng thắp sáng
+                                        ước mơ nông nghiệp</label>
                                 </div>
 
                                 <div class="d-flex align-items-center">
-                                    <input type="checkbox" value="hoc_bong_khuyen_khich_hoc_tap" wire:model="scholarships" id="hoc_bong_khuyen_khich_hoc_tap">
-                                    <label class="ms-2" for="hoc_bong_khuyen_khich_hoc_tap">Học bổng khuyến khích học tập</label>
+                                    <input type="checkbox" value="hoc_bong_khuyen_khich_hoc_tap"
+                                           wire:model="scholarships" id="hoc_bong_khuyen_khich_hoc_tap">
+                                    <label class="ms-2" for="hoc_bong_khuyen_khich_hoc_tap">Học bổng khuyến khích học
+                                        tập</label>
                                 </div>
 
                                 <div class="d-flex align-items-center">
-                                    <input type="checkbox" value="hoc_bong_tai_tro_cua_doanh_nghiep" wire:model="scholarships" id="hoc_bong_tai_tro_cua_doanh_nghiep">
-                                    <label class="ms-2" for="hoc_bong_tai_tro_cua_doanh_nghiep">Học bổng tài trợ của doanh nghiệp</label>
+                                    <input type="checkbox" value="hoc_bong_tai_tro_cua_doanh_nghiep"
+                                           wire:model="scholarships" id="hoc_bong_tai_tro_cua_doanh_nghiep">
+                                    <label class="ms-2" for="hoc_bong_tai_tro_cua_doanh_nghiep">Học bổng tài trợ của
+                                        doanh nghiệp</label>
                                 </div>
 
                             </div>
@@ -138,34 +155,35 @@
             </div>
         </div>
     @else
-        <livewire:client.lucky-register-success memberId="{{ $memberId }}" name="{{ $name }}" code_id="{{ $code_id }}" dob="{{ $dob }}" phone="{{ $phone }}" />
+        <livewire:client.lucky-register-success memberId="{{ $memberId }}" name="{{ $name }}" code_id="{{ $code_id }}"
+                                                dob="{{ $dob }}" phone="{{ $phone }}" :scholarships="$scholarships"/>
     @endif
 </div>
 
 @script
-    <script>
-        $(document).ready(function() {
-            const dpBasicElementStartDate = document.querySelector('#dob');
-            if (dpBasicElementStartDate) {
-                new Datepicker(dpBasicElementStartDate, {
-                    container: '.content-inner',
-                    buttonClass: 'btn',
-                    prevArrow: document.dir == 'rtl' ? '&rarr;' : '&larr;',
-                    nextArrow: document.dir == 'rtl' ? '&larr;' : '&rarr;',
-                    format: 'dd/mm/yyyy',
-                    weekStart: 1,
-                    language: 'vi',
-                });
-                dpBasicElementStartDate.addEventListener('changeDate', function(event) {
-                    const selectedDate = new Date(event.detail.date);
-                    const formattedDate = formatDateToString(selectedDate);
-                    Livewire.dispatch('update-dob', {
-                        value: formattedDate
-                    })
-                });
-            }
+<script>
+    $(document).ready(function () {
+        const dpBasicElementStartDate = document.querySelector('#dob');
+        if (dpBasicElementStartDate) {
+            new Datepicker(dpBasicElementStartDate, {
+                container: '.content-inner',
+                buttonClass: 'btn',
+                prevArrow: document.dir == 'rtl' ? '&rarr;' : '&larr;',
+                nextArrow: document.dir == 'rtl' ? '&larr;' : '&rarr;',
+                format: 'dd/mm/yyyy',
+                weekStart: 1,
+                language: 'vi',
+            });
+            dpBasicElementStartDate.addEventListener('changeDate', function (event) {
+                const selectedDate = new Date(event.detail.date);
+                const formattedDate = formatDateToString(selectedDate);
+                Livewire.dispatch('update-dob', {
+                    value: formattedDate
+                })
+            });
+        }
 
 
-        });
-    </script>
+    });
+</script>
 @endscript
