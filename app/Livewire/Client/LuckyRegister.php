@@ -28,6 +28,9 @@ class LuckyRegister extends Component
     #[Validate(as: 'số điện thoại')]
     public string $phone = '';
 
+    #[Validate(as: 'học bổng')]
+    public string $scholarships = '';
+
     public function rules(): array
     {
         return [
@@ -69,6 +72,7 @@ class LuckyRegister extends Component
 
     public function render()
     {
+
         return view('livewire.client.lucky-register');
     }
 
@@ -94,6 +98,7 @@ class LuckyRegister extends Component
                     'phone' => $this->phone,
                     'dob' => Carbon::make($this->dob),
                     'campaign_id' => (int) $this->campaignId,
+                    'scholarships' => $this->scholarships,
                 ]);
                 $this->memberId = $member->id;
                 $this->state = 'success';

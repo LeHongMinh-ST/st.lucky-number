@@ -11,8 +11,8 @@
                                     <img src="{{ asset('assets/images/VNUA.png') }}" class="h-64px" alt="">
                                     {{--                                <img src="{{asset('assets/images/logoST.jpg')}}" class="h-64px" alt=""> --}}
                                 </div>
-                                <h4 class="mb-0">CHƯƠNG TRÌNH VÒNG QUAY MAY MẮN</h4>
-                                <span class="mb-3 d-block text-muted">Thí sinh điền, gửi thông tin cá nhân để nhận được mã số may mắn</span>
+                                <h4 class="mb-0">ĐĂNG KÝ THAM GIA HỌC BỔNG ĐỂ NHẬN NHIỀU PHẦN QUÀ HẤP DẪN</h4>
+                                <span class="mb-3 d-block text-muted">Thí sinh đăng ký tham gia học bổng bằng cách điền, gửi thông tin cá nhân để nhận được mã số may mắn. Học viện sẽ tổ chức quay số trúng thưởng vào ngày nhập học và trao quà cho các thí sinh trúng thưởng</span>
                             </div>
                             <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
                                 <label for="name" class="col-form-label">
@@ -64,6 +64,23 @@
                                            for="phone">{{ $message }}</label>
                                 @enderror
                             </div>
+                            <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
+                                <label for="phone" class="col-form-label">
+                                    Đăng ký tham gia nhận học bổng
+                                </label>
+                                {{-- <input wire:model.live="phone" type="text" id="phone" value="{{ $phone }}" --}}
+                                {{--       class="form-control"> --}}
+                                <select class="form-select" wire:model="scholarships">
+                                    <option value="">Chọn học bổng</option>
+                                    @foreach (config('scholarships') as $key => $item)
+                                        <option value="{{ $key }}">{{ $item }}</option>
+                                    @endforeach
+                                </select>
+                                @error('phone')
+                                    <label id="error-name" class="validation-error-label text-danger"
+                                           for="phone">{{ $message }}</label>
+                                @enderror
+                            </div>
                             <div class="mt-3 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5 d-flex justify-content-end">
                                 <button type="button" class="btn btn-primary" @click="$wire.submit()">
                                     <i class="ph-telegram-logo"></i>
@@ -76,10 +93,10 @@
                         <div class="register-image-wrapper">
                             <img class="login-image" src="{{ asset('assets/images/login.jpg') }}" alt="login">
                             <div class="line"></div>
-                            <div class="login-note text-muted">
-                                Đăng ký nhận mã số may mắn để nhận những phần quà hấp dẫn từ <br> Học viện Nông nghiệp Việt
-                                Nam
-                            </div>
+                            {{-- <div class="login-note text-muted"> --}}
+                            {{--    Đăng ký nhận mã số may mắn để nhận những phần quà hấp dẫn từ <br> Học viện Nông nghiệp Việt --}}
+                            {{--    Nam --}}
+                            {{-- </div> --}}
                         </div>
                     </div>
                 </div>
