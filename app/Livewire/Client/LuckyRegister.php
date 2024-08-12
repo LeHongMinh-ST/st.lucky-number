@@ -30,6 +30,8 @@ class LuckyRegister extends Component
 
     public array $scholarships = [];
 
+    public bool $isLoading = false;
+
     public function rules(): array
     {
         return [
@@ -51,6 +53,8 @@ class LuckyRegister extends Component
 
         ];
     }
+
+
 
     protected $listeners = [
         'update-dob' => 'updateDob',
@@ -82,34 +86,37 @@ class LuckyRegister extends Component
 
     public function submit()
     {
-
-        $this->validate();
-        // store
-        $this->dob = str_replace('/', '-', $this->dob);
-        $member = Member::where('code_id', $this->code_id)->first();
-        if ($member) {
-            $this->dispatch('alert', type: 'error', message: 'Bạn đã đăng ký và nhận mã dự thưởng!');
-        } else {
-            try {
-                $member = Member::create([
-                    'name' => $this->name,
-                    'code_id' => $this->code_id,
-                    'phone' => $this->phone,
-                    'dob' => Carbon::make($this->dob),
-                    'campaign_id' => (int) $this->campaignId,
-                    'scholarships' => $this->scholarships,
-                ]);
-                $this->memberId = $member->id;
-                $this->state = 'success';
-            } catch (Exception $e) {
-                $this->dispatch('alert', type: 'error', message: 'Đăng ký thất bại!');
-                Log::error('Error create campaign', [
-                    'method' => __METHOD__,
-                    'message' => $e->getMessage(),
-                ]);
+        if (!$this->isLoading) {
+            $this->isLoading = true;
+            $this->validate();
+            // store
+            $this->dob = str_replace('/', '-', $this->dob);
+            $member = Member::where('code_id', $this->code_id)->first();
+            if ($member) {
+                $this->dispatch('alert', type: 'error', message: 'Bạn đã đăng ký và nhận mã dự thưởng!');
+            } else {
+                try {
+                    $member = Member::create([
+                        'name' => $this->name,
+                        'code_id' => $this->code_id,
+                        'phone' => $this->phone,
+                        'dob' => Carbon::make($this->dob),
+                        'campaign_id' => (int) $this->campaignId,
+                        'scholarships' => $this->scholarships,
+                    ]);
+                    $this->memberId = $member->id;
+                    $this->state = 'success';
+                } catch (Exception $e) {
+                    $this->dispatch('alert', type: 'error', message: 'Đăng ký thất bại!');
+                    Log::error('Error create campaign', [
+                        'method' => __METHOD__,
+                        'message' => $e->getMessage(),
+                    ]);
+                }
             }
+            $this->isLoading = false;
         }
-
         return null;
+
     }
 }
