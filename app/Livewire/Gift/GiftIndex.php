@@ -7,9 +7,11 @@ use App\Models\Gift;
 use Exception;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class GiftIndex extends Component
 {
+    use WithPagination;
 
     public string $campaignId = '';
 
@@ -19,7 +21,7 @@ class GiftIndex extends Component
 
     protected $listeners = [
         'refresh-gift' => '$refresh',
-        'deleteGift' => 'destroy'
+        'deleteGift' => 'destroy',
     ];
 
     public function render()
@@ -29,7 +31,7 @@ class GiftIndex extends Component
             ->where('campaign_id', $this->campaignId)->paginate(Constants::PER_PAGE_ADMIN);
 
         return view('livewire.gift.gift-index', [
-            'gifts' => $gifts
+            'gifts' => $gifts,
         ]);
     }
 

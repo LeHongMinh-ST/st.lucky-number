@@ -12,9 +12,7 @@ use Illuminate\Http\RedirectResponse;
 
 class AuthController extends Controller
 {
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     public function showLoginForm(): View|Application|Factory
     {
@@ -25,7 +23,7 @@ class AuthController extends Controller
     {
         $request->merge([$this->username() => request()->input('username')]);
         $credentials = $request->only([$this->username(), 'password']);
-        if ( ! auth()->attempt($credentials, (bool) ($request->get('remember')))) {
+        if (! auth()->attempt($credentials, (bool) ($request->get('remember')))) {
             return redirect()->back()
                 ->withErrors(['message' => ['Vui lòng kiểm tra lại tài khoản hoặc mật khẩu!']])
                 ->withInput();
