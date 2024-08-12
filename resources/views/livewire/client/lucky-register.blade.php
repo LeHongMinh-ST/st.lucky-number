@@ -64,23 +64,29 @@
                                            for="phone">{{ $message }}</label>
                                 @enderror
                             </div>
-                            {{--<div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">--}}
-                            {{--    <label for="phone" class="col-form-label">--}}
-                            {{--        Đăng ký tham gia nhận học bổng--}}
-                            {{--    </label>--}}
-                            {{--    {{-- <input wire:model.live="phone" type="text" id="phone" value="{{ $phone }}" --}}--}}
-                            {{--    {{--       class="form-control"> --}}--}}
-                            {{--    <select class="form-select" wire:model="scholarships">--}}
-                            {{--        <option value="">Chọn học bổng</option>--}}
-                            {{--        @foreach (config('scholarships.hoc_bong') ?? [] as $key => $item)--}}
-                            {{--            <option value="{{ $key }}">{{ $item }}</option>--}}
-                            {{--        @endforeach--}}
-                            {{--    </select>--}}
-                            {{--    @error('phone')--}}
-                            {{--        <label id="error-name" class="validation-error-label text-danger"--}}
-                            {{--               for="phone">{{ $message }}</label>--}}
-                            {{--    @enderror--}}
-                            {{--</div>--}}
+                            <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
+                                <label for="phone" class="col-form-label">
+                                    Đăng ký tham gia nhận học bổng
+                                </label>
+                                {{-- <input wire:model.live="phone" type="text" id="phone" value="{{ $phone }}" --}}
+                                {{--       class="form-control"> --}}
+                                <select class="form-select" wire:model="scholarships">
+                                    <option value="">Chọn học bổng</option>
+                                    <option value="hoc_bong_du_hoc_nuoc_ngoai">Học bổng du học nước ngoài</option>
+                                    <option value="hoc_bong_sinh_vien_tai_nang">Học bổng sinh viên tài năng</option>
+                                    <option value="hoc_bong_toi_yeu_que_huong">Học bổng tôi yêu quê hương</option>
+                                    <option value="hoc_bong_toi_yeu_hvn">Học bổng tôi yêu HVN</option>
+                                    <option value="hoc_bong_sinh_vien_toan_cau">Học bổng sinh viên toàn cầu</option>
+                                    <option value="hoc_bong_khoi_nghiep_vnua">Học bổng khởi nghiệp VNUA</option>
+                                    <option value="hoc_bong_thap_sang_uoc_mo_nong_nghiep">Học bổng thắp sáng ước mơ nông nghiệp</option>
+                                    <option value="hoc_bong_khuyen_khich_hoc_tap">Học bổng khuyến khích học tập</option>
+                                    <option value="hoc_bong_tai_tro_cua_doanh_nghiep">Học bổng tài trợ của doanh nghiệp</option>
+                                </select>
+                                @error('phone')
+                                    <label id="error-name" class="validation-error-label text-danger"
+                                           for="phone">{{ $message }}</label>
+                                @enderror
+                            </div>
                             <div class="mt-3 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5 d-flex justify-content-end">
                                 <button type="button" class="btn btn-primary" @click="$wire.submit()">
                                     <i class="ph-telegram-logo"></i>
