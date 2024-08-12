@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('admin.campaigns.index');
 });
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -28,7 +28,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('handleLogout');
 
 
 Route::prefix('admin')->middleware(['auth'])->group(function (): void {
-    Route::get('/', fn () => redirect()->route('admin.dashboard'));
+    Route::get('/', fn () => redirect()->route('admin.campaigns.index'));
     Route::get('/dashboard', fn () => view('pages.dashboard'))->name('admin.dashboard');
     Route::prefix('campaigns')->group(function (): void {
         Route::get('/', [CampaignController::class, 'index'])->name('admin.campaigns.index');
