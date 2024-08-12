@@ -34,11 +34,14 @@
                                 <p>Ngày sinh: {{ $dob }}</p>
                                 <p>CCCD/CMT: {{$code_id}}</p>
                                 <p>Số điện thoại: {{ $phone }}</p>
-                                <p>Các chương trình học bổng đã đăng ký:</p>
+                                <p>Các chương trình học bổng đã đăng ký:
                                 @foreach($scholarships as $item)
-                                    <p>{{$scholarshipsLabel[$item]}}</p>
-
+                                    {{$scholarshipsLabel[$item]}}
+                                        @if(!$loop->last)
+                                            ,
+                                        @endif
                                 @endforeach
+                                </p>
                             </div>
                         </div>
                         <div class="info-lucky-number text-center mt-5">
