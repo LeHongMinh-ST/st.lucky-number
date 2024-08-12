@@ -72,7 +72,7 @@
                                 {{--       class="form-control"> --}}
                                 <select class="form-select" wire:model="scholarships">
                                     <option value="">Chọn học bổng</option>
-                                    @foreach (config('scholarships') ?? [] as $key => $item)
+                                    @foreach (config('scholarships.hoc_bong') ?? [] as $key => $item)
                                         <option value="{{ $key }}">{{ $item }}</option>
                                     @endforeach
                                 </select>

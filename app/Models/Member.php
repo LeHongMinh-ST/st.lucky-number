@@ -38,7 +38,7 @@ class Member extends Model
     public function getScholarshipLabelAttribute()
     {
         if ($this->scholarships) {
-            $scholarships = config('scholarships');
+            $scholarships = config('scholarships.hoc_bong');
 
             return $scholarships[$this->scholarships] ?? 'Không';
         }
