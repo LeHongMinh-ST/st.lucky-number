@@ -25,7 +25,6 @@ class LuckyRegister extends Component
     #[Validate(as: 'ngày sinh')]
     public string $dob = '';
 
-
     #[Validate(as: 'số điện thoại')]
     public string $phone = '';
 
@@ -34,7 +33,7 @@ class LuckyRegister extends Component
         return [
             'name' => [
                 'required',
-                'max:255'
+                'max:255',
             ],
             'code_id' => [
                 'required',
@@ -42,7 +41,7 @@ class LuckyRegister extends Component
             ],
             'phone' => [
                 'required',
-                'max:20'
+                'max:20',
             ],
             'dob' => [
                 'required',
@@ -50,6 +49,7 @@ class LuckyRegister extends Component
 
         ];
     }
+
     protected $listeners = [
         'update-dob' => 'updateDob',
     ];
@@ -60,8 +60,6 @@ class LuckyRegister extends Component
             $this->resetValidation('dob');
         }
         $this->dob = str_replace('/', '-', $value);
-
-
     }
 
     public function updated($field): void
@@ -76,24 +74,26 @@ class LuckyRegister extends Component
 
     public function mount($campaignId)
     {
-        $this->campaignId = (string)$campaignId;
+        $this->campaignId = (string) $campaignId;
     }
 
     public function submit()
     {
         $this->validate();
         // store
+
+        $this->dob = str_replace('/', '-', $this->dob);
         $member = Member::where('code_id', $this->code_id)->first();
         if ($member) {
             $this->dispatch('alert', type: 'error', message: 'Bạn đã đăng ký và nhận mã dự thưởng!');
         } else {
             try {
-               $member = Member::create([
+                $member = Member::create([
                     'name' => $this->name,
                     'code_id' => $this->code_id,
                     'phone' => $this->phone,
                     'dob' => Carbon::make($this->dob),
-                    'campaign_id' => (int)$this->campaignId
+                    'campaign_id' => (int) $this->campaignId,
                 ]);
                 $this->memberId = $member->id;
                 $this->state = 'success';
@@ -105,7 +105,6 @@ class LuckyRegister extends Component
                 ]);
             }
         }
-
 
         return null;
     }
