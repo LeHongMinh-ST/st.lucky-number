@@ -29,7 +29,7 @@ class LuckyRegister extends Component
     public string $phone = '';
 
     #[Validate(as: 'học bổng')]
-    public string $scholarships = '';
+    public array $scholarships = [];
 
     public function rules(): array
     {
@@ -83,9 +83,9 @@ class LuckyRegister extends Component
 
     public function submit()
     {
+
         $this->validate();
         // store
-
         $this->dob = str_replace('/', '-', $this->dob);
         $member = Member::where('code_id', $this->code_id)->first();
         if ($member) {

@@ -11,6 +11,10 @@ class Member extends Model
 
     protected $fillable = ['name', 'code_id', 'dob', 'phone', 'campaign_id', 'scholarships'];
 
+    protected $casts = [
+      'scholarships' => 'array'
+    ];
+
     public function campaign()
     {
         return $this->belongsTo(Campaign::class);
@@ -51,7 +55,14 @@ class Member extends Model
                 'hoc_bong_tai_tro_cua_doanh_nghiep' => 'Học bổng tài trợ của doanh nghiệp',
             ];
 
-            return $scholarships[$this->scholarships] ?? 'Không';
+            $result = [];
+
+            foreach ($this->scholarships as $key) {
+                if (isset($scholarships[$key])) {
+                    $result[] = $scholarships[$key];
+                }
+            }
+            return implode(', ', $result);
         }
 
         return 'Không';
