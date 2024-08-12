@@ -26,7 +26,6 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('handleLogin');
 Route::post('/logout', [AuthController::class, 'logout'])->name('handleLogout');
 
-
 Route::prefix('admin')->middleware(['auth'])->group(function (): void {
     Route::get('/', fn () => redirect()->route('admin.campaigns.index'));
     Route::get('/dashboard', fn () => view('pages.dashboard'))->name('admin.dashboard');
@@ -49,4 +48,3 @@ Route::get('/lucky/{campaign_id}', [LuckyController::class, 'index'])->name('luc
 Route::get('/lucky/{campaign_id}/auth', [LuckyController::class, 'auth'])->name('lucky.auth');
 Route::post('/lucky/{campaign_id}/auth', [LuckyController::class, 'handleCheckKey'])->name('lucky.handleCheckKey');
 Route::get('/lucky/{campaign_id}/register', [RegisterController::class, 'index'])->name('lucky.register');
-

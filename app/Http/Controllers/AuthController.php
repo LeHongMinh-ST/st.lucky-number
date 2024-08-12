@@ -29,7 +29,7 @@ class AuthController extends Controller
                 ->withInput();
         }
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->intended('admin.campaigns.index');
     }
 
     public function logout(): RedirectResponse
