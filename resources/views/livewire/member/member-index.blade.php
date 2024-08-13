@@ -30,7 +30,7 @@
                         <th>CCCD/CMT</th>
                         <th>Số điện thoại</th>
                         <th>Học bổng đăng ký</th>
-                        <th class="text-center">Mã số dự thưởng</th>
+                        <th class="text-center">Mã số may mắn</th>
 
                     </tr>
                 </thead>
