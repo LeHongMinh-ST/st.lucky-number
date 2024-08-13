@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('admin.campaigns.index');
+    return redirect(route('admin.campaigns.index'));
 });
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
