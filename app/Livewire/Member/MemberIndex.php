@@ -24,9 +24,11 @@ class MemberIndex extends Component
             ->where('campaign_id', $this->campaignId)
             ->orderBy('created_at', 'desc')
             ->paginate(Constants::PER_PAGE_ADMIN);
-
+        $total = Member::query()
+            ->where('campaign_id', $this->campaignId)->count();
         return view('livewire.member.member-index', [
             'members' => $members,
+            'total' => $total
         ]);
     }
 

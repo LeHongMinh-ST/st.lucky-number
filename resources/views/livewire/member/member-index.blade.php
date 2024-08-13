@@ -1,10 +1,13 @@
 <div>
     <div class="card">
-        <div class="py-3 card-header d-flex justify-content-between">
+        <div class="py-3 card-header d-flex justify-content-between align-items-center">
             <div class="gap-2 d-flex">
                 <div>
                     <input wire:model.live="search" type="text" class="form-control" placeholder="Tìm kiếm...">
                 </div>
+            </div>
+            <div class="gap-2 d-flex align-items-center">
+                <b>Tổng số người đăng ký: {{$total}}</b>
             </div>
             <div class="gap-2 d-flex">
                 <div>
