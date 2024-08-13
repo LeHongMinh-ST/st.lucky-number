@@ -10,10 +10,10 @@
                         <div class="login-image-wrapper">
                             <img class="login-image" src="{{ asset('assets/images/login.jpg') }}" alt="login">
                             <div class="line"></div>
-                            <div class="login-note text-muted">
-                                Lưu ý: Nếu bạn chưa có tài khoản xin vui lòng liên hệ với quản lý phòng lab hoặc cán bộ quản lý hệ thống
-                                để thiết lập tài khoản
-                            </div>
+{{--                            <div class="login-note text-muted">--}}
+{{--                                Lưu ý: Nếu bạn chưa có tài khoản xin vui lòng liên hệ với quản lý phòng lab hoặc cán bộ quản lý hệ thống--}}
+{{--                                để thiết lập tài khoản--}}
+{{--                            </div>--}}
                         </div>
 
                     </div>
@@ -26,8 +26,8 @@
                                     {{-- <img src="{{asset('assets/images/FITA.png')}}" class="h-64px" alt=""> --}}
                                     {{-- <img src="{{asset('assets/images/logoST.jpg')}}" class="h-64px" alt=""> --}}
                                 </div>
-                                <span class="d-block text-muted">Chào mừng bạn đến với</span>
-                                <h5 class="mb-0">Hệ thống vòng quay may mắn</h5>
+{{--                                <span class="d-block text-muted">Chào mừng bạn đến với</span>--}}
+                                <h5 class="mb-0">CHƯƠNG TRÌNH HỌC BỔNG</h5>
                             </div>
 
                             <div class="mb-3">
@@ -61,7 +61,7 @@
                                     <span class="form-check-label">Nhớ mật khẩu</span>
                                 </label>
 
-                                <a href="#" class="ms-auto">Quên mật khẩu</a>
+{{--                                <a href="#" class="ms-auto">Quên mật khẩu</a>--}}
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
