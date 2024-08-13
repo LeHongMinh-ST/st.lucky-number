@@ -12,11 +12,11 @@
                         <button type="button" class="px-2 btn btn-success btn-icon" @click="$wire.export()">
                             <i class="px-1 ph-microsoft-excel-logo"></i><span>Xuất excel</span>
                         </button>
-                    @endif
 
-                    {{--                    <button type="button" class="px-2 btn btn-danger btn-icon" @click="$wire.$refresh"> --}}
-                    {{--                        <i class="px-1 ph-warning"></i><span>Đặt lại</span> --}}
-                    {{--                    </button> --}}
+                        <button type="button" class="px-2 btn btn-danger btn-icon" @click="$wire.openResetResultModal()">
+                            <i class="px-1 ph-warning"></i><span>Đặt lại</span>
+                        </button>
+                    @endif
                     <button type="button" class="px-2 btn btn-light btn-icon" @click="$wire.$refresh">
                         <i class="px-1 ph-arrows-clockwise"></i><span>Tải lại</span>
                     </button>
@@ -28,31 +28,31 @@
         <div class="table-responsive-md">
             <table class="table fs-table">
                 <thead>
-                    <tr class="table-light">
-                        <th>STT</th>
-                        <th>Họ và tên</th>
-                        <th>Ngày sinh</th>
-                        <th>CCCD/CMT</th>
-                        <th>Số điện thoại</th>
-                        <th class="text-center">Mã số may mắn</th>
-                        <th>Giải thưởng</th>
-                    </tr>
+                <tr class="table-light">
+                    <th>STT</th>
+                    <th>Họ và tên</th>
+                    <th>Ngày sinh</th>
+                    <th>CCCD/CMT</th>
+                    <th>Số điện thoại</th>
+                    <th class="text-center">Mã số may mắn</th>
+                    <th>Giải thưởng</th>
+                </tr>
                 </thead>
                 <tbody>
-                    @forelse($members as $member)
-                        <tr>
-                            <td>{{ $loop->index + 1 + $members->perPage() * ($members->currentPage() - 1) }}</td>
-                            <td>{{ $member->name }}</td>
-                            <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
-                            <td>{{ $member->code_id }}</td>
-                            <td>{{ $member->phone }}</td>
-                            <td class="text-center">{{ $member->id }}</td>
-                            <td class="bold">{{ $member->giftResult->gift->name }}</td>
-                            {{--                        <td>{{ $member->created_at->format('d/m/Y') }}</td> --}}
-                        </tr>
-                    @empty
-                        <x-table-empty :colspan="7" />
-                    @endforelse
+                @forelse($members as $member)
+                    <tr>
+                        <td>{{ $loop->index + 1 + $members->perPage() * ($members->currentPage() - 1) }}</td>
+                        <td>{{ $member->name }}</td>
+                        <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
+                        <td>{{ $member->code_id }}</td>
+                        <td>{{ $member->phone }}</td>
+                        <td class="text-center">{{ $member->id }}</td>
+                        <td class="bold">{{ $member->giftResult->gift->name }}</td>
+                        {{--                        <td>{{ $member->created_at->format('d/m/Y') }}</td> --}}
+                    </tr>
+                @empty
+                    <x-table-empty :colspan="7"/>
+                @endforelse
                 </tbody>
             </table>
         </div>
@@ -60,3 +60,24 @@
     {{ $members->links('vendor.pagination.theme') }}
 
 </div>
+@script
+<script>
+
+    window.addEventListener('openResetResultModal', () => {
+        new swal({
+            title: "Bạn có chắc chắn?",
+            text: "Dữ liệu sau khi đặt lại không thể phục hồi!",
+            showCancelButton: true,
+            confirmButtonColor: "#FF7043",
+            confirmButtonText: "Đồng ý!",
+            cancelButtonText: "Đóng!"
+        }).then((value) => {
+            if (value.isConfirmed) {
+                Livewire.dispatch('resetResult')
+            }
+        })
+    })
+
+
+</script>
+@endscript
