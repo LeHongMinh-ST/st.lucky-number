@@ -50,7 +50,7 @@
 
                         </tr>
                     @empty
-                        <x-table-empty :colspan="6" />
+                        <x-table-empty :colspan="8" />
                     @endforelse
                 </tbody>
             </table>

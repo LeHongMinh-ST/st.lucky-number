@@ -33,7 +33,9 @@ class Member extends Model
     public function scopeSearch($query, $search)
     {
         if ($search) {
-            $query->where('name', 'like', '%'.$search.'%')->orWhere('code_id', 'like', '%'.$search.'%')->orWhere('phone', 'like', '%'.$search.'%');
+            $query->where('name', 'like', '%'.$search.'%')
+                ->orWhere('code_id', 'like', '%'.$search.'%')
+                ->orWhere('phone', 'like', '%'.$search.'%');
         }
 
         return $query;
