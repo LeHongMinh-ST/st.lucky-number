@@ -8,6 +8,7 @@
             <th>Số điện thoại</th>
             <th>Học bổng đăng ký</th>
             <th class="text-center">Mã số may mắn</th>
+            <th class="text-center">Ngày đăng ký</th>
 
         </tr>
     </thead>
@@ -21,6 +22,7 @@
                 <td>{{ $member->phone }}</td>
                 <td>{{ $member->scholarshipLabel }}</td>
                 <td class="text-center">{{ $member->id }}</td>
+                <td>{{ $member->created_at->format('H:m d/m/Y') }}</td>
             </tr>
         @endforeach
     </tbody>

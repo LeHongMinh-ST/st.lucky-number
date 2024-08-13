@@ -12,7 +12,7 @@ class Member extends Model
     protected $fillable = ['name', 'code_id', 'dob', 'phone', 'campaign_id', 'scholarships'];
 
     protected $casts = [
-      'scholarships' => 'array'
+        'scholarships' => 'array',
     ];
 
     public function campaign()
@@ -33,7 +33,7 @@ class Member extends Model
     public function scopeSearch($query, $search)
     {
         if ($search) {
-            $query->where('name', 'like', '%'.$search.'%');
+            $query->where('name', 'like', '%'.$search.'%')->orWhere('code_id', 'like', '%'.$search.'%')->orWhere('phone', 'like', '%'.$search.'%');
         }
 
         return $query;
@@ -62,6 +62,7 @@ class Member extends Model
                     $result[] = $scholarships[$key];
                 }
             }
+
             return implode(', ', $result);
         }
 
