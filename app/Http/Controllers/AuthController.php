@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function __construct() {}
 
-    public function showLoginForm(): View|Application|Factory
+    public function showLoginForm(): View|Application|Factory|RedirectResponse
     {
         if (auth()->check()) {
             return redirect()->route('admin.campaigns.index');
