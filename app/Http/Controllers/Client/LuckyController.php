@@ -21,6 +21,11 @@ class LuckyController extends Controller
         return view('pages.client.lucky-number')->with(['campaignId' => $id]);
     }
 
+    public function search($id)
+    {
+        return view('pages.client.search-lucky-number')->with(['campaignId' => $id]);
+    }
+
     public function auth($id)
     {
         $auth = Session::get('lucky-'.$id);
