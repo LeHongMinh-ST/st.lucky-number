@@ -30,13 +30,14 @@
         <!-- Main navigation -->
         <div class="sidebar-section">
             <ul class="nav nav-sidebar" data-nav-type="accordion">
-                {{-- <li class="nav-item"> --}}
-                {{--    <a href="{{route('admin.coming-soon')}}" --}}
-                {{--       class="nav-link"> --}}
-                {{--        <i class="ph-house"></i> --}}
-                {{--        <span>Dashboard</span> --}}
-                {{--    </a> --}}
-                {{-- </li> --}}
+                <li class="nav-item">
+                    <a href="{{ route('admin.dashboard') }}"
+                       class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+
+                        <i class="ph-house"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
                 <li class="pt-0 nav-item-header">
                     <div class="opacity-50 text-uppercase fs-sm lh-sm sidebar-resize-hide">Vòng quay - Chiến dịch</div>
                     <i class="ph-dots-three sidebar-resize-show"></i>
