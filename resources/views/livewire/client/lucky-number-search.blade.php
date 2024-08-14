@@ -58,10 +58,10 @@
                             @enderror
                         </div>
                         <div class="mt-3 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5 d-flex justify-content-between">
-                            <button type="button" class="btn btn-warning" @click="$wire.submit()">
+                            <a href="{{route('lucky.register', ['campaign_id' => $campaignId])}}" class="btn btn-warning">
                                 <i class="search-logo"></i>
                                 Đăng ký
-                            </button>
+                            </a>
                             <button type="button" class="btn btn-primary" @click="$wire.submit()">
                                 <i class="search-logo"></i>
                                 Tra cứu
