@@ -14,13 +14,13 @@ class LuckyNumberSearch extends Component
     public ?Member $member = null;
 
     #[Validate(as: 'cccd/cmt')]
-    public string $code_id = '';
+    public $code_id = '';
 
     #[Validate(as: 'ngày sinh')]
-    public string $dob = '';
+    public $dob = '';
 
     #[Validate(as: 'số điện thoại')]
-    public string $phone = '';
+    public $phone = '';
 
     public array $scholarships = [];
 
@@ -33,17 +33,16 @@ class LuckyNumberSearch extends Component
                 'required',
                 'max:255',
             ],
-            'phone'   => [
+            'phone' => [
                 'required',
                 'max:20',
             ],
-            'dob'     => [
+            'dob' => [
                 'required',
             ],
 
         ];
     }
-
 
     protected $listeners = [
         'update-dob' => 'updateDob',
@@ -75,31 +74,31 @@ class LuckyNumberSearch extends Component
             'hoc_bong_khuyen_khich_hoc_tap' => 'Học bổng khuyến khích học tập',
             'hoc_bong_tai_tro_cua_doanh_nghiep' => 'Học bổng tài trợ của doanh nghiệp',
         ];
+
         return view('livewire.client.lucky-number-search')->with('scholarshipsLabel', $scholarshipsLabel);
     }
 
     public function mount($campaignId)
     {
-        $this->campaignId = (string)$campaignId;
+        $this->campaignId = (string) $campaignId;
     }
 
     public function submit()
     {
-        if (!$this->isLoading) {
+        if (! $this->isLoading) {
             $this->isLoading = true;
             $this->validate();
             $dob = Carbon::createFromFormat('d-m-Y', $this->dob);
             $this->member = Member::where('code_id', $this->code_id)
                 ->where('phone', $this->phone)->where('dob', $dob->format('Y-m-d'))->first();
             if ($this->member) {
-                $this->phone = '';
-                $this->dob = '';
-                $this->code_id = '';
+                $this->reset(['code_id', 'phone', 'dob']);
             } else {
                 $this->dispatch('alert', type: 'error', message: 'Bạn chưa đăng ký và nhận mã dự thưởng!');
             }
             $this->isLoading = false;
         }
+
         return null;
     }
 }

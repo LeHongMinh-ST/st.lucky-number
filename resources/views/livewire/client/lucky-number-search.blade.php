@@ -12,21 +12,21 @@
                     <div class="line" style="margin: 10px auto 20px; background: #e5e5e5; width: 50% ;height: 1px;"></div>
                 </div>
             </div>
-            <div class="row ">
-                <div class="col-md-6 col-12 flex-column mb-3">
+            <div class="row">
+                <div class="mb-3 col-md-6 col-12 flex-column">
                     <div class="form-register">
                         <div class="mb-3 text-center">
-                            <h5 class="mb-3 d-block border-black">Thông tin tra cứu</h5>
+                            <h5 class="mb-3 border-black d-block">Thông tin tra cứu</h5>
                         </div>
                         <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
                             <label for="code_id" class="col-form-label">
                                 Số căn cước công dân/chứng minh nhân dân <span class="required">*</span>
                             </label>
-                            <input wire:model.live="code_id" type="text" id="code_id" value="{{ $code_id }}"
+                            <input wire:model.live="code_id" type="text" id="code_id"
                                    class="form-control">
                             @error('code_id')
-                            <label id="error-code_id" class="validation-error-label text-danger"
-                                   for="code_id">{{ $message }}</label>
+                                <label id="error-code_id" class="validation-error-label text-danger"
+                                       for="code_id">{{ $message }}</label>
                             @enderror
                         </div>
                         <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
@@ -36,8 +36,8 @@
                             <input wire:model.live="phone" type="text" id="phone" value="{{ $phone }}"
                                    class="form-control">
                             @error('phone')
-                            <label id="error-name" class="validation-error-label text-danger"
-                                   for="phone">{{ $message }}</label>
+                                <label id="error-name" class="validation-error-label text-danger"
+                                       for="phone">{{ $message }}</label>
                             @enderror
                         </div>
                         <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
@@ -45,16 +45,16 @@
                                 Ngày sinh <span class="required">*</span>
                             </label>
                             <div class="input-group">
-                                    <span class="input-group-text">
-                                        <i class="ph-calendar"></i>
-                                    </span>
+                                <span class="input-group-text">
+                                    <i class="ph-calendar"></i>
+                                </span>
                                 <input wire:model="dob" type="text" id="dob" value="{{ $this->dob }}"
                                        class="form-control datepicker-basic datepicker-input">
                             </div>
 
                             @error('dob')
-                            <label id="error-dob" class="validation-error-label text-danger"
-                                   for="dob">{{ $message }}</label>
+                                <label id="error-dob" class="validation-error-label text-danger"
+                                       for="dob">{{ $message }}</label>
                             @enderror
                         </div>
                         <div class="mt-3 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5 d-flex justify-content-between">
@@ -77,7 +77,7 @@
                         </div>
                     @else
                         <div class="col-md-6 col-12 w-100">
-                            <div class="text-center mb-3">
+                            <div class="mb-3 text-center">
                                 <h5 class="mb-3">Kết quả tra cứu</h5>
                             </div>
                             <div class="form-register" id="capture">
@@ -86,24 +86,24 @@
                                         <div class="info-other">
                                             <p>Họ tên: {{ $member->name }}</p>
                                             <p>Ngày sinh: {{ $member->dob }}</p>
-                                            <p>CCCD/CMT: {{$member->code_id}}</p>
+                                            <p>CCCD/CMT: {{ $member->code_id }}</p>
                                             <p>Số điện thoại: {{ $member->phone }}</p>
                                             <p>Các chương trình học bổng đã đăng ký:
-                                                @foreach($member->scholarships as $item)
-                                                    {{$scholarshipsLabel[$item]}}
-                                                    @if(!$loop->last)
+                                                @foreach ($member->scholarships ?? [] as $item)
+                                                    {{ $scholarshipsLabel[$item] }}
+                                                    @if (!$loop->last)
                                                         ,
                                                     @endif
                                                 @endforeach
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="info-lucky-number text-center mt-3">
+                                    <div class="mt-3 text-center info-lucky-number">
                                         <div class="lucky-number-title">
                                             <h6>Mã số may mắn của bạn</h6>
                                         </div>
                                         <div class="lucky-number-success" id="lucky-number">
-                                            {{$member->id}}
+                                            {{ $member->id }}
                                         </div>
                                     </div>
                                 </div>
@@ -124,40 +124,39 @@
 </div>
 
 @script
-<script>
-    $(document).ready(function () {
-        const dpBasicElementStartDate = document.querySelector('#dob');
-        if (dpBasicElementStartDate) {
-            new Datepicker(dpBasicElementStartDate, {
-                container: '.content-inner',
-                buttonClass: 'btn',
-                prevArrow: document.dir == 'rtl' ? '&rarr;' : '&larr;',
-                nextArrow: document.dir == 'rtl' ? '&larr;' : '&rarr;',
-                format: 'dd/mm/yyyy',
-                weekStart: 1,
-                language: 'vi',
-            });
-            dpBasicElementStartDate.addEventListener('changeDate', function (event) {
-                const selectedDate = new Date(event.detail.date);
-                const formattedDate = formatDateToString(selectedDate);
-                Livewire.dispatch('update-dob', {
-                    value: formattedDate
-                })
-            });
-        }
+    <script>
+        $(document).ready(function() {
+            const dpBasicElementStartDate = document.querySelector('#dob');
+            if (dpBasicElementStartDate) {
+                new Datepicker(dpBasicElementStartDate, {
+                    container: '.content-inner',
+                    buttonClass: 'btn',
+                    prevArrow: document.dir == 'rtl' ? '&rarr;' : '&larr;',
+                    nextArrow: document.dir == 'rtl' ? '&larr;' : '&rarr;',
+                    format: 'dd/mm/yyyy',
+                    weekStart: 1,
+                    language: 'vi',
+                });
+                dpBasicElementStartDate.addEventListener('changeDate', function(event) {
+                    const selectedDate = new Date(event.detail.date);
+                    const formattedDate = formatDateToString(selectedDate);
+                    Livewire.dispatch('update-dob', {
+                        value: formattedDate
+                    })
+                });
+            }
 
 
-        $('#captureBtn').on('click', function () {
-            console.log(123123)
-            html2canvas($('#capture')[0]).then(function (canvas) {
+            $('#captureBtn').on('click', function() {
+                console.log(123123)
+                html2canvas($('#capture')[0]).then(function(canvas) {
 
-                var link = document.createElement('a');
-                link.download = 'lucky-number.png';
-                link.href = canvas.toDataURL();
-                link.click();
+                    var link = document.createElement('a');
+                    link.download = 'lucky-number.png';
+                    link.href = canvas.toDataURL();
+                    link.click();
+                });
             });
         });
-    });
-
-</script>
+    </script>
 @endscript
