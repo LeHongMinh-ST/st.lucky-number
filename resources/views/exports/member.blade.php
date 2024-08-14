@@ -22,7 +22,7 @@
                 <td>{{ $member->phone }}</td>
                 <td>{{ $member->scholarshipLabel }}</td>
                 <td class="text-center">{{ $member->id }}</td>
-                <td>{{ $member->created_at->format('H:m d/m/Y') }}</td>
+                <td>{{ $member->created_at->format('H:i d/m/Y') }}</td>
             </tr>
         @endforeach
     </tbody>

@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="gap-2 d-flex align-items-center">
-                <b>Tổng số người đăng ký: {{$total}}</b>
+                <b>Tổng số người đăng ký: {{ $total }}</b>
             </div>
             <div class="gap-2 d-flex">
                 <div>
@@ -49,7 +49,7 @@
                             <td>{{ $member->phone }}</td>
                             <td>{{ $member->scholarshipLabel }}</td>
                             <td class="text-center">{{ $member->id }}</td>
-                            <td>{{ $member->created_at->format('H:m d/m/Y') }}</td>
+                            <td>{{ $member->created_at->format('H:i d/m/Y') }}</td>
 
                         </tr>
                     @empty

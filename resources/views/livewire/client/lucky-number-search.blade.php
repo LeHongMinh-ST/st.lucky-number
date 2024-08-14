@@ -116,8 +116,6 @@
                         @script
                             <script>
                                 $(document).ready(function() {
-
-
                                     $('#captureBtn').on('click', function() {
                                         console.log(123123)
                                         html2canvas($('#capture')[0]).then(function(canvas) {
