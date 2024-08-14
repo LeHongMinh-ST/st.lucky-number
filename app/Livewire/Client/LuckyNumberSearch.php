@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Client;
 
+use App\Common\Constants;
 use App\Models\Member;
 use Carbon\Carbon;
 use Livewire\Attributes\Validate;
@@ -36,6 +37,7 @@ class LuckyNumberSearch extends Component
             'phone' => [
                 'required',
                 'max:20',
+                'regex:'.Constants::REGEX_PHONE_NUMBER,
             ],
             'dob' => [
                 'required',
@@ -89,10 +91,24 @@ class LuckyNumberSearch extends Component
             $this->isLoading = true;
             $this->validate();
             $dob = Carbon::createFromFormat('d-m-Y', $this->dob);
-            $this->member = Member::where('code_id', $this->code_id)
-                ->where('phone', $this->phone)->where('dob', $dob->format('Y-m-d'))->first();
-            if ($this->member) {
-                $this->reset(['code_id', 'phone', 'dob']);
+            $memberInfo = Member::where('code_id', $this->code_id)->first();
+            if ($memberInfo) {
+                $message = '';
+
+                if ($memberInfo->phone != $this->phone && $memberInfo->dob != $dob->format('Y-m-d')) {
+                    $message = 'Số điện thoại và ngày sinh không đúng!';
+                } elseif ($memberInfo->phone != $this->phone) {
+                    $message = 'Số điện thoại không đúng!';
+                } elseif ($memberInfo->dob != $dob->format('Y-m-d')) {
+                    $message = 'Ngày sinh không đúng!';
+                } else {
+                    $this->member = $memberInfo;
+                    $this->reset(['code_id', 'phone', 'dob']);
+                }
+
+                if ($message) {
+                    $this->dispatch('alert', type: 'error', message: $message);
+                }
             } else {
                 $this->dispatch('alert', type: 'error', message: 'Bạn chưa đăng ký và nhận mã số may mắn!');
             }
