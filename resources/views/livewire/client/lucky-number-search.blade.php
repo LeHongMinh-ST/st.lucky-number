@@ -5,7 +5,6 @@
                 <div class="mb-3 text-center">
                     <div class="gap-1 mt-2 mb-4 d-inline-flex align-items-center justify-content-center">
                         <img src="{{ asset('assets/images/VNUA.png') }}" class="h-64px" alt="">
-                        {{--                                <img src="{{asset('assets/images/logoST.jpg')}}" class="h-64px" alt=""> --}}
                     </div>
                     <h4 class="mb-0">TRA CỨU MÃ SỐ MAY MẮN</h4>
                     <span class="mb-3 d-block text-muted">Trong chương trình đăng ký tham gia học bổng để nhận nhiều phần quà hấp dẫn</span>
@@ -116,10 +115,8 @@
                         @script
                             <script>
                                 $(document).ready(function() {
-                                    $('#captureBtn').on('click', function() {
-                                        console.log(123123)
+                                    $(document).on("click","#captureBtn",function() {
                                         html2canvas($('#capture')[0]).then(function(canvas) {
-
                                             var link = document.createElement('a');
                                             link.download = 'lucky-number.png';
                                             link.href = canvas.toDataURL();
