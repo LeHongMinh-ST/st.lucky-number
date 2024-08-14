@@ -1,14 +1,14 @@
 <x-admin-layout>
     <x-slot name="header">
-        <div class="page-header page-header-light shadow">
+        <div class="shadow page-header page-header-light">
             <div class="page-header-content d-lg-flex">
                 <div class="d-flex">
-                    <h4 class="page-title mb-0">
+                    <h4 class="mb-0 page-title">
                         Home - <span class="fw-normal">Dashboard</span>
                     </h4>
 
-                    <a href="#page_header" class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto" data-bs-toggle="collapse">
-                        <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
+                    <a href="#page_header" class="p-0 border-transparent btn btn-light align-self-center collapsed d-lg-none rounded-pill ms-auto" data-bs-toggle="collapse">
+                        <i class="m-1 ph-caret-down collapsible-indicator ph-sm"></i>
                     </a>
                 </div>
 
@@ -16,14 +16,14 @@
 
             <div class="page-header-content d-lg-flex border-top">
                 <div class="d-flex">
-                    <div class="breadcrumb py-2">
+                    <div class="py-2 breadcrumb">
                         <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
                         <a href="#" class="breadcrumb-item">Home</a>
                         <span class="breadcrumb-item active">Dashboard</span>
                     </div>
 
-                    <a href="#breadcrumb_elements" class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto" data-bs-toggle="collapse">
-                        <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
+                    <a href="#breadcrumb_elements" class="p-0 border-transparent btn btn-light align-self-center collapsed d-lg-none rounded-pill ms-auto" data-bs-toggle="collapse">
+                        <i class="m-1 ph-caret-down collapsible-indicator ph-sm"></i>
                     </a>
                 </div>
 
@@ -33,6 +33,6 @@
 
 
     <div class="content">
-        Hello
+        <livewire:dashboard />
     </div>
 </x-admin-layout>
