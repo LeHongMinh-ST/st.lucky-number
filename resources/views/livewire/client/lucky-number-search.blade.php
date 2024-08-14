@@ -88,12 +88,10 @@
                                             <p><b>Ngày sinh:</b> {{ $member->dob }}</p>
                                             <p><b>CCCD/CMT:</b> {{ $member->code_id }}</p>
                                             <p><b>Số điện thoại:</b> {{ $member->phone }}</p>
-                                            <p><b>Các chương trình học bổng đã đăng ký:<b>
-                                                        @foreach ($member->scholarships ?? [] as $item)
-                                                            {{ $scholarshipsLabel[$item] }}@if (!$loop->last)
-                                                                ,
-                                                            @endif
-                                                        @endforeach
+                                            <p><b>Các chương trình học bổng đã đăng ký:</b>
+                                                @foreach ($member->scholarships ?? [] as $item)
+                                                    {{ $scholarshipsLabel[$item] }}{{ !$loop->last ? ', ' : '' }}
+                                                @endforeach
                                             </p>
                                         </div>
                                     </div>
