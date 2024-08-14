@@ -17,7 +17,7 @@ class AuthController extends Controller
     public function showLoginForm(): View|Application|Factory|RedirectResponse
     {
         if (auth()->check()) {
-            return redirect()->route('admin.campaigns.index');
+            return redirect()->route('admin.dashboard');
         }
 
         return view('pages.auth.login');
@@ -33,7 +33,7 @@ class AuthController extends Controller
                 ->withInput();
         }
 
-        return redirect()->intended(route('admin.campaigns.index'));
+        return redirect()->intended(route('admin.dashboard'));
     }
 
     public function logout(): RedirectResponse
