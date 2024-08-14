@@ -8,7 +8,7 @@
                         {{--                                <img src="{{asset('assets/images/logoST.jpg')}}" class="h-64px" alt=""> --}}
                     </div>
                     <h4 class="mb-0">TRA CỨU MÃ SỐ MAY MẮN</h4>
-                    <span class="mb-3 d-block text-muted">Thí sinh tra cứu mã số may mắn bằng cách nhập CCCD/CMT, Số điện thoại và ngày sinh</span>
+                    <span class="mb-3 d-block text-muted">Trong chương trình đăng ký tham gia học bổng để nhận nhiều phần quà hấp dẫn</span>
                     <div class="line" style="margin: 10px auto 20px; background: #e5e5e5; width: 50% ;height: 1px;"></div>
                 </div>
             </div>
