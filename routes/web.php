@@ -45,6 +45,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function (): void {
 });
 
 Route::get('/lucky/{campaign_id}', [LuckyController::class, 'index'])->name('lucky.number');
+Route::get('/lucky/{campaign_id}/search', [LuckyController::class, 'search'])->name('lucky.search');
 Route::get('/lucky/{campaign_id}/auth', [LuckyController::class, 'auth'])->name('lucky.auth');
 Route::post('/lucky/{campaign_id}/auth', [LuckyController::class, 'handleCheckKey'])->name('lucky.handleCheckKey');
 Route::get('/lucky/{campaign_id}/register', [RegisterController::class, 'index'])->name('lucky.register');
