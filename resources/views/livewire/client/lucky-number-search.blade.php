@@ -84,17 +84,16 @@
                                 <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
                                     <div class="info-general">
                                         <div class="info-other">
-                                            <p>Họ tên: {{ $member->name }}</p>
-                                            <p>Ngày sinh: {{ $member->dob }}</p>
-                                            <p>CCCD/CMT: {{ $member->code_id }}</p>
-                                            <p>Số điện thoại: {{ $member->phone }}</p>
-                                            <p>Các chương trình học bổng đã đăng ký:
-                                                @foreach ($member->scholarships ?? [] as $item)
-                                                    {{ $scholarshipsLabel[$item] }}
-                                                    @if (!$loop->last)
-                                                        ,
-                                                    @endif
-                                                @endforeach
+                                            <p><b>Họ tên:</b> {{ $member->name }}</p>
+                                            <p><b>Ngày sinh:</b> {{ $member->dob }}</p>
+                                            <p><b>CCCD/CMT:</b> {{ $member->code_id }}</p>
+                                            <p><b>Số điện thoại:</b> {{ $member->phone }}</p>
+                                            <p><b>Các chương trình học bổng đã đăng ký:<b>
+                                                        @foreach ($member->scholarships ?? [] as $item)
+                                                            {{ $scholarshipsLabel[$item] }}@if (!$loop->last)
+                                                                ,
+                                                            @endif
+                                                        @endforeach
                                             </p>
                                         </div>
                                     </div>
