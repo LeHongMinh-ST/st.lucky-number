@@ -113,6 +113,24 @@
                                 </button>
                             </div>
                         </div>
+                        @script
+                            <script>
+                                $(document).ready(function() {
+
+
+                                    $('#captureBtn').on('click', function() {
+                                        console.log(123123)
+                                        html2canvas($('#capture')[0]).then(function(canvas) {
+
+                                            var link = document.createElement('a');
+                                            link.download = 'lucky-number.png';
+                                            link.href = canvas.toDataURL();
+                                            link.click();
+                                        });
+                                    });
+                                });
+                            </script>
+                        @endscript
                     @endif
                 </div>
             </div>
@@ -142,18 +160,6 @@
                     })
                 });
             }
-
-
-            $('#captureBtn').on('click', function() {
-                console.log(123123)
-                html2canvas($('#capture')[0]).then(function(canvas) {
-
-                    var link = document.createElement('a');
-                    link.download = 'lucky-number.png';
-                    link.href = canvas.toDataURL();
-                    link.click();
-                });
-            });
         });
     </script>
 @endscript
