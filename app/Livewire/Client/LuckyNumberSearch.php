@@ -94,7 +94,7 @@ class LuckyNumberSearch extends Component
             if ($this->member) {
                 $this->reset(['code_id', 'phone', 'dob']);
             } else {
-                $this->dispatch('alert', type: 'error', message: 'Bạn chưa đăng ký và nhận mã may mắn!');
+                $this->dispatch('alert', type: 'error', message: 'Bạn chưa đăng ký và nhận mã số may mắn!');
             }
             $this->isLoading = false;
         }
