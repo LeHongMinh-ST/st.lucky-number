@@ -84,7 +84,7 @@
                                     <div class="info-general">
                                         <div class="info-other">
                                             <p><b>Họ tên:</b> {{ $member->name }}</p>
-                                            <p><b>Ngày sinh:</b> {{ $member->dob }}</p>
+                                            <p><b>Ngày sinh:</b> {{ $dobFormat }}</p>
                                             <p><b>CCCD/CMT:</b> {{ $member->code_id }}</p>
                                             <p><b>Số điện thoại:</b> {{ $member->phone }}</p>
                                             <p><b>Các chương trình học bổng đã đăng ký:</b>

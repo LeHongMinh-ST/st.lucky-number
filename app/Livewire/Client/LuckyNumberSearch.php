@@ -23,6 +23,7 @@ class LuckyNumberSearch extends Component
     #[Validate(as: 'số điện thoại')]
     public $phone = '';
 
+    public $dobFormat = '';
     public array $scholarships = [];
 
     public bool $isLoading = false;
@@ -109,6 +110,8 @@ class LuckyNumberSearch extends Component
                 if ($message) {
                     $this->dispatch('alert', type: 'error', message: $message);
                 }
+
+                $this->dobFormat = Carbon::createFromFormat('Y-m-d', $this->member->dob)->format('d-m-Y');
             } else {
                 $this->dispatch('alert', type: 'error', message: 'Bạn chưa đăng ký và nhận mã số may mắn!');
             }
