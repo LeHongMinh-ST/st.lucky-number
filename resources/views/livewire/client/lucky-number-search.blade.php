@@ -149,10 +149,12 @@
                 });
                 dpBasicElementStartDate.addEventListener('changeDate', function(event) {
                     const selectedDate = new Date(event.detail.date);
-                    const formattedDate = formatDateToString(selectedDate);
-                    Livewire.dispatch('update-dob', {
-                        value: formattedDate
-                    })
+                    if (event.detail.date) {
+                        const formattedDate = formatDateToString(selectedDate);
+                        Livewire.dispatch('update-dob', {
+                            value: formattedDate
+                        })
+                    }
                 });
             }
         });
