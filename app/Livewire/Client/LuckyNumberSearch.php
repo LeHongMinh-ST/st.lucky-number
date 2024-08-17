@@ -88,11 +88,12 @@ class LuckyNumberSearch extends Component
 
     public function submit()
     {
-        if (! $this->isLoading) {
+        $this->validate();
+        if (!$this->isLoading) {
             $this->isLoading = true;
-            $this->validate();
             $dob = Carbon::createFromFormat('d-m-Y', $this->dob);
             $memberInfo = Member::where('code_id', $this->code_id)->first();
+
             if ($memberInfo) {
                 $message = '';
 
@@ -111,7 +112,7 @@ class LuckyNumberSearch extends Component
                     $this->dispatch('alert', type: 'error', message: $message);
                 }
 
-                $this->dobFormat = Carbon::createFromFormat('Y-m-d', $this->member->dob)->format('d-m-Y');
+                $this->dobFormat =  $this->member?->dob ? Carbon::createFromFormat('Y-m-d', $this->member->dob)->format('d/m/Y') : '';
             } else {
                 $this->dispatch('alert', type: 'error', message: 'Bạn chưa đăng ký và nhận mã số may mắn!');
             }
