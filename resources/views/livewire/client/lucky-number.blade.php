@@ -28,10 +28,13 @@
     <div class="row">
         <div class="col">
             <div class="card p-3">
-                <div class="header text-center">
-                    <h1>Quay lần {{ $turn }}</h1>
 
-                </div>
+                @if($giftCurrent?->quantity > 1)
+                    <div class="header text-center">
+                        <h1>Quay lần {{ $turn }}</h1>
+
+                    </div>
+                @endif
                 <div class="gift-content text-center">
                     {{ $giftCurrent ? \App\Helpers\Helpers::formatNumber($giftCurrent?->quantity ?? 0) : ''}}  {{ $giftCurrent ? ($giftCurrent->name . ($giftCurrent?->quantity ? "/giải": '')) : "Đã hết giải thưởng" }}
                 </div>
