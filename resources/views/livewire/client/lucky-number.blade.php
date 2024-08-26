@@ -3,17 +3,18 @@
         <div class="col">
             <div class="card p-3">
                 <div class="header text-center">
-                    <h1>Vòng quay may mắn</h1>
+                    <h1>QUAY SỐ TRÚNG THƯỞNG</h1>
                 </div>
                 <div class="lucky-content text-center">
                     <div id="lucky" class="lucky-number" wire:ignore>000</div>
                 </div>
                 <div class="lucky-action text-center">
                    @if($giftCurrent)
-                        <button class="btn btn-primary btn-lg" @if($isLoading) disabled="disabled" @endif id="btn-start" wire:click="startLucky()">
+                        <button class="btn btn-primary btn-lg" @if($isLoading) disabled="disabled" @endif id="btn-start"
+                                wire:click="startLucky()">
                             <i class="ph-arrow-clockwise"></i> {{ $firstStart ? "Quay" : "Quay lại" }}
                         </button>
-                   @endif
+                    @endif
                     @if(!$isLoading && !$firstStart)
                         <button class="btn btn-success btn-lg" wire:click="saveResult({{$giftCurrent->id}})">
                             <i class="ph-arrow-circle-right"></i> Tiếp tục
@@ -28,17 +29,13 @@
         <div class="col">
             <div class="card p-3">
                 <div class="header text-center">
-                    <h1>Giải thưởng</h1>
+                    <h1>Quay lần {{ $turn }}</h1>
+
+                </div>
+                <div class="gift-content text-center">
+                    {{ $giftCurrent ? \App\Helpers\Helpers::formatNumber($giftCurrent?->quantity ?? 0) : ''}}  {{ $giftCurrent ? ($giftCurrent->name . ($giftCurrent?->quantity ? "/giải": '')) : "Đã hết giải thưởng" }}
                 </div>
 
-                <div class="gift-content text-center">
-                   {{ $giftCurrent ? $giftCurrent?->quantity  . " x" : ''}}  {{ $giftCurrent ? ($giftCurrent->name) : "Đã hết giải thưởng" }}
-                </div>
-                @if($giftCurrent?->quantity > 1)
-                    <div class="text-center">
-                        <h1>Quay lần {{ $turn }}</h1>
-                    </div>
-                @endif
 
             </div>
         </div>
