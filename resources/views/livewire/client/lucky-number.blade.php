@@ -30,9 +30,15 @@
                 <div class="header text-center">
                     <h1>Giải thưởng</h1>
                 </div>
+
                 <div class="gift-content text-center">
-                    {{ $giftCurrent ? $giftCurrent->name : "Đã hết giải thưởng" }}
+                   {{ $giftCurrent ? $giftCurrent?->quantity  . " x" : ''}}  {{ $giftCurrent ? ($giftCurrent->name) : "Đã hết giải thưởng" }}
                 </div>
+                @if($giftCurrent?->quantity > 1)
+                    <div class="text-center">
+                        <h1>Quay lần {{ $turn }}</h1>
+                    </div>
+                @endif
 
             </div>
         </div>

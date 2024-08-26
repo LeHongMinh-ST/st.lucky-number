@@ -36,6 +36,7 @@ class LuckyNumber extends Component
 
 
         $giftCurrent = null;
+        $turn = 1;
 
         foreach ($gifts as $gift) {
             // Count the number of times this gift appears in the results
@@ -44,13 +45,16 @@ class LuckyNumber extends Component
             // If this gift is not fully used yet
             if ($giftResultCount < $gift->quantity) {
                 $giftCurrent = $gift;
+                $turn = $giftResultCount + 1;
                 break;
             }
         }
 
 
+
         return view('livewire.client.lucky-number', [
-            'giftCurrent' => $giftCurrent
+            'giftCurrent' => $giftCurrent,
+            'turn' => $turn
         ]);
     }
 
