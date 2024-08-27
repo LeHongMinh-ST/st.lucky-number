@@ -19,6 +19,12 @@ class UserTableSeeder extends Seeder
             'email' => 'superadmin@st.vn',
             'password' => '123456aA@',
         ]);
+
+        self::checkIssetBeforeCreate([
+            'name' => 'Admin',
+            'email' => 'admin@admin.com',
+            'password' => '123456aA@',
+        ]);
     }
 
     private function checkIssetBeforeCreate($data): void
