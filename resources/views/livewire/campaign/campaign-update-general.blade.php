@@ -20,6 +20,25 @@
                 </div>
                 <div class="mt-2 row">
                     <div class="col">
+                        <label for="title" class="col-form-label">
+                            Ngày kết kúc <span class="required">*</span>
+                        </label>
+                        <div class="input-group">
+                           <span class="input-group-text">
+												<i class="ph-calendar"></i>
+											</span>
+                            <input wire:model="end" type="text" id="endDate" value="{{ $this->end }}"
+                                   class="form-control datepicker-basic datepicker-input ">
+                        </div>
+                        @error('end')
+                        <label id="error-username" class="validation-error-label text-danger"
+                               for="username">{{ $message }}</label>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="mt-2 row">
+                    <div class="col">
                         <button class="btn btn-primary" @click="$wire.update"><i class="ph-floppy-disk"></i> Cập nhật</button>
 
                     </div>
@@ -28,3 +47,27 @@
         </div>
     </div>
 </div>
+@script
+<script>
+    $(document).ready(function () {
+        const dpBasicElementEndDate = document.querySelector('#endDate');
+        if (dpBasicElementEndDate) {
+            new Datepicker(dpBasicElementEndDate, {
+                container: '.content-inner',
+                buttonClass: 'btn',
+                prevArrow: document.dir == 'rtl' ? '&rarr;' : '&larr;',
+                nextArrow: document.dir == 'rtl' ? '&larr;' : '&rarr;',
+                format: 'dd/mm/yyyy',
+                weekStart: 1,
+                language: 'vi',
+            });
+            dpBasicElementEndDate.addEventListener('changeDate', function (event) {
+                const selectedDate = new Date(event.detail.date);
+                const formattedDate = formatDateToString(selectedDate);
+                Livewire.dispatch('update-end-date', { value: formattedDate })
+            });
+        }
+
+    });
+</script>
+@endscript
