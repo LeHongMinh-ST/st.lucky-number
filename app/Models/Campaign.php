@@ -34,6 +34,8 @@ class Campaign extends Model
 
     public function isExpired()
     {
+        if (!$this->end) return false;
+
         $now = Carbon::now()->timestamp;
         $end = Carbon::make($this->end)->endOfDay()->timestamp;
         return $end < $now;
