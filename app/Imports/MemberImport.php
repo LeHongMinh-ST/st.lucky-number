@@ -32,7 +32,6 @@ class MemberImport implements ToCollection, WithStartRow, WithHeadingRow
                     'code' => $row['ma_sv'],
                     'campaign_id' => $this->campaignId
                 ]);
-                Log::alert('member', $member?->name);
 
                 $data = [
                     'campaign_id' => $this->campaignId,
@@ -52,11 +51,12 @@ class MemberImport implements ToCollection, WithStartRow, WithHeadingRow
                 if (!$member) {
                     Member::create($data);
                 } else {
+                    Log::alert('member', $member?->name);
                     $member->update($data);
                 }
 
             }
-
+            Log::alert('import success');
             DB::commit();
         } catch (\Exception $e) {
             Log::error('Error import student', [
