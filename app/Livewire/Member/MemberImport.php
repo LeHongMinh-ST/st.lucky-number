@@ -47,8 +47,8 @@ class MemberImport extends Component
         $this->validate();
 
         try {
-//            MemberImportJob::dispatch($this->campaignId, $this->file);
-            Excel::import(new \App\Imports\MemberImport($this->campaignId), $this->file);
+            MemberImportJob::dispatch($this->campaignId, $this->file);
+//            Excel::import(new \App\Imports\MemberImport($this->campaignId), $this->file);
 
             $this->dispatch('alert', type: 'success', message: 'Import thành công! Hệ thống đang xử lý tệp của bạn');
             $this->closeImportModal();
