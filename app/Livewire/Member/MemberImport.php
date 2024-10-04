@@ -3,6 +3,7 @@
 namespace App\Livewire\Member;
 
 use App\Jobs\MemberImportJob;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Maatwebsite\Excel\Facades\Excel;
@@ -54,6 +55,7 @@ class MemberImport extends Component
             $this->closeImportModal();
             $this->dispatch('refresh-student');
         }catch (\Exception $e) {
+            Log::error($e->getMessage());
             $this->dispatch('alert', type: 'error', message: 'Import thất bại!');
         }
     }
