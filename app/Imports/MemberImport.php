@@ -51,7 +51,6 @@ class MemberImport implements ToCollection, WithStartRow, WithHeadingRow
                 if (!$member) {
                     Member::create($data);
                 } else {
-                    Log::alert('member', $member?->name);
                     $member->update($data);
                 }
 

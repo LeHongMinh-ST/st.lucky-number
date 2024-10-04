@@ -11,15 +11,15 @@
             </div>
             <div class="gap-2 d-flex">
                 <div>
-{{--                    <button type="button" class="px-2 btn btn-success btn-icon" wire:click="openImportModal()">--}}
-{{--                        <i class="px-1 ph-microsoft-excel-logo"></i><span>Import Sinh viên</span>--}}
-{{--                    </button>--}}
+                    <button type="button" class="px-2 btn btn-success btn-icon" wire:click="openImportModal()">
+                        <i class="px-1 ph-microsoft-excel-logo"></i><span>Import Sinh viên</span>
+                    </button>
 
-                    @if (count($members) > 0)
-                        <button type="button" class="px-2 btn btn-success btn-icon" @click="$wire.export()">
-                            <i class="px-1 ph-microsoft-excel-logo"></i><span>Xuất excel</span>
-                        </button>
-                    @endif
+{{--                    @if (count($members) > 0)--}}
+{{--                        <button type="button" class="px-2 btn btn-success btn-icon" @click="$wire.export()">--}}
+{{--                            <i class="px-1 ph-microsoft-excel-logo"></i><span>Xuất excel</span>--}}
+{{--                        </button>--}}
+{{--                    @endif--}}
 
                     <button type="button" class="px-2 btn btn-light btn-icon" @click="$wire.$refresh">
                         <i class="px-1 ph-arrows-clockwise"></i><span>Tải lại</span>
@@ -34,12 +34,13 @@
                     <tr class="table-light">
                         <th>STT</th>
                         <th>Họ và tên</th>
+                        <th>Mã sinh viên</th>
+                        <th>Lớp</th>
+                        <th>Khoa</th>
+                        <th>Giới tính</th>
                         <th>Ngày sinh</th>
-                        <th>CCCD/CMT</th>
                         <th>Số điện thoại</th>
-                        <th>Học bổng đăng ký</th>
-                        <th class="text-center">Mã số may mắn</th>
-                        <th class="text-center">Ngày đăng ký</th>
+
 
                     </tr>
                 </thead>
@@ -48,14 +49,13 @@
                         <tr>
                             <td>{{ $loop->index + 1 + $members->perPage() * ($members->currentPage() - 1) }}</td>
                             <td>{{ $member->name }}</td>
+                            <td>{{ $member->code }}</td>
+                            <td>{{ $member->class }}</td>
+                            <td>{{ $member->faculty }}</td>
+                            <td>{{ $member->gender == 'Nam' ? 'Nam' : 'Nữ' }}</td>
                             <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
 
-                            <td>{{ $member->code_id }}</td>
                             <td>{{ $member->phone }}</td>
-                            <td>{{ $member->scholarshipLabel }}</td>
-                            <td class="text-center">{{ $member->id }}</td>
-                            <td class="text-center">{{$member->campaign->type == \App\Enums\CampaignType::News ? $member->created_at->format('H:i d/m/Y') : $member?->register_at?->format('H:i d/m/Y')}}</td>
-
                         </tr>
                     @empty
                         <x-table-empty :colspan="8" />
@@ -69,17 +69,17 @@
 
 </div>
 
-{{--@script--}}
-{{--<script>--}}
-{{--    window.addEventListener('open-import-modal', () => {--}}
-{{--        $('#model-import').modal('show')--}}
-{{--    })--}}
+@script
+<script>
+    window.addEventListener('open-import-modal', () => {
+        $('#model-import').modal('show')
+    })
 
 
-{{--    window.addEventListener('close-import-modal', () => {--}}
-{{--        $('#model-import').modal('hide')--}}
-{{--    })--}}
+    window.addEventListener('close-import-modal', () => {
+        $('#model-import').modal('hide')
+    })
 
 
-{{--</script>--}}
-{{--@endscript--}}
+</script>
+@endscript

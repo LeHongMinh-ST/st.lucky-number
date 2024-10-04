@@ -11,7 +11,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Maatwebsite\Excel\Facades\Excel;
 
-class MemberIndex extends Component
+class MemberStudentIndex extends Component
 {
     use WithPagination;
 
@@ -31,18 +31,11 @@ class MemberIndex extends Component
         $members = Member::query()
             ->search($this->search)
             ->where('campaign_id', $this->campaignId)
-            ->when($campaign->type === CampaignType::Students, function ($q) {
-                return $q->where('is_register', true);
-            })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('name', 'asc')
             ->paginate(Constants::PER_PAGE_ADMIN);
         $total = Member::query()
-            ->where('campaign_id', $this->campaignId)
-            ->when($campaign->type === CampaignType::Students, function ($q) {
-                return $q->where('is_register', true);
-            })
-            ->count();
-        return view('livewire.member.member-index', [
+            ->where('campaign_id', $this->campaignId)->count();
+        return view('livewire.member.member-student-index', [
             'members' => $members,
             'total' => $total
         ]);
@@ -51,11 +44,6 @@ class MemberIndex extends Component
     public function mount($campaignId)
     {
         $this->campaignId = $campaignId;
-    }
-
-    public function export()
-    {
-        return Excel::download(new MemberExport($this->campaignId), 'ds-nguoi-choi.xlsx');
     }
 
     public function openImportModal()

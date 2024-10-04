@@ -3,6 +3,7 @@
 namespace App\Livewire\Client;
 
 use App\Models\Member;
+use Illuminate\Support\Carbon;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -89,8 +90,7 @@ class LuckyRegisterStudentUpdate extends Component
     public function update()
     {
         $this->validate();
-        Member::where('id', $this->member?->id)->update([
-            'is_register' => true,
+        $data = [
             'email' => $this->email,
             'code_id' => $this->code_id,
             'phone' => $this->phone,
@@ -99,7 +99,14 @@ class LuckyRegisterStudentUpdate extends Component
             'is_inn' => $this->is_inn,
             'inn_owner' => $this->inn_owner ?? '',
             'inn_owner_phone' => $this->inn_owner_phone ?? '',
-        ]);
+        ];
+        if (!$this->member->is_register) {
+            $data = [
+                'is_register' => true,
+                'register_at' => Carbon::now()
+            ];
+        }
+        Member::where('id', $this->member?->id)->update($data);
         $this->dispatch('nextStepSuccess');
     }
 

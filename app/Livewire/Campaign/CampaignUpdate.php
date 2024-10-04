@@ -12,6 +12,7 @@ class CampaignUpdate extends Component
     public string $key = '';
     public CampaignType $type;
     public string $campaignId = '';
+    public ?Campaign $campaign;
 
     public function render()
     {
@@ -21,6 +22,7 @@ class CampaignUpdate extends Component
     public function mount($campaignId): void
     {
         $campaign = Campaign::query()->find($campaignId);
+        $this->campaign = $campaign;
         if ($campaign) {
             $this->name = $campaign->name;
             $this->key = $campaign->key;

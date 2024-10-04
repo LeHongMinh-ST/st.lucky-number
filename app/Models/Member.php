@@ -36,6 +36,7 @@ class Member extends Model
         'scholarships' => 'array',
         'is_inn' => 'boolean',
         'is_register' => 'boolean',
+        'register_at' => 'datetime'
     ];
 
     public function campaign()

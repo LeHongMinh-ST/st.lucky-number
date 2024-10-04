@@ -30,14 +30,22 @@
                     Giải thưởng
                 </a>
             </li>
+            @if($campaign?->type === \App\Enums\CampaignType::Students)
+                <li class="nav-item" role="presentation">
+                    <a href="#js-tab3" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                        Danh sách sinh viên
+                    </a>
+                </li>
+            @endif
 
             <li class="nav-item" role="presentation">
-                <a href="#js-tab3" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                <a href="#js-tab4" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
                     Người chơi
                 </a>
             </li>
+
             <li class="nav-item" role="presentation">
-                <a href="#js-tab4" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                <a href="#js-tab5" class="nav-link" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
                     Kết quả
                 </a>
             </li>
@@ -52,13 +60,19 @@
                 <livewire:gift.gift-index :campaignId="$campaignId" />
 
             </div>
+            @if($campaign?->type === \App\Enums\CampaignType::Students)
+                <div class="tab-pane fade" id="js-tab3" role="tabpanel">
+                    <livewire:member.member-student-index :campaignId="$campaignId" />
 
-            <div class="tab-pane fade" id="js-tab3" role="tabpanel">
+                </div>
+            @endif
+
+            <div class="tab-pane fade" id="js-tab4" role="tabpanel">
                 <livewire:member.member-index :campaignId="$campaignId" />
 
             </div>
 
-            <div class="tab-pane fade" id="js-tab4" role="tabpanel">
+            <div class="tab-pane fade" id="js-tab5" role="tabpanel">
                 <livewire:result.result-index :campaignId="$campaignId" />
 
             </div>
