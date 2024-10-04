@@ -31,7 +31,7 @@ class MemberImport implements ToCollection, WithStartRow, WithHeadingRow
                 $member = Member::query()->where([
                     'code' => $row['ma_sv'],
                     'campaign_id' => $this->campaignId
-                ]);
+                ])->first();
 
                 $data = [
                     'campaign_id' => $this->campaignId,
