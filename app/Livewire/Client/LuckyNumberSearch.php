@@ -3,6 +3,7 @@
 namespace App\Livewire\Client;
 
 use App\Common\Constants;
+use App\Models\Campaign;
 use App\Models\Member;
 use Carbon\Carbon;
 use Livewire\Attributes\Validate;
@@ -13,6 +14,8 @@ class LuckyNumberSearch extends Component
     public string $campaignId = '';
 
     public ?Member $member = null;
+
+    public ?Campaign $campaign;
 
     #[Validate(as: 'cccd/cmt')]
     public $code_id = '';
@@ -84,6 +87,7 @@ class LuckyNumberSearch extends Component
     public function mount($campaignId)
     {
         $this->campaignId = (string) $campaignId;
+        $this->campaign = Campaign::query()->find($campaignId);
     }
 
     public function submit()

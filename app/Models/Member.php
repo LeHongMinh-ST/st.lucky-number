@@ -28,10 +28,14 @@ class Member extends Model
         'gender',
         'school_year',
         'ethnicity',
+        'is_inn',
+        'is_register'
     ];
 
     protected $casts = [
         'scholarships' => 'array',
+        'is_inn' => 'boolean',
+        'is_register' => 'boolean',
     ];
 
     public function campaign()

@@ -15,7 +15,6 @@ class LuckyRegisterSuccess extends Component
 
     public string $dob = '';
 
-
     public string $phone = '';
 
     public array|string $scholarships = [];

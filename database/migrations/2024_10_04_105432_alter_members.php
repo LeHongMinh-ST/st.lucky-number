@@ -18,7 +18,7 @@ return new class extends Migration
             }
 
             if (!Schema::hasColumn('members', 'address')) {
-                $table->string('address')->nullable();
+                $table->text('address')->nullable();
             }
 
             if (!Schema::hasColumn('members', 'code')) {
@@ -26,7 +26,7 @@ return new class extends Migration
             }
 
             if (!Schema::hasColumn('members', 'address_now')) {
-                $table->string('address_now')->nullable();
+                $table->text('address_now')->nullable();
             }
 
             if (!Schema::hasColumn('members', 'inn_owner')) {

@@ -5,6 +5,11 @@
                 <div class="mb-3 text-center">
                     <div class="gap-1 mt-2 mb-4 d-inline-flex align-items-center justify-content-center">
                         <img src="{{ asset('assets/images/VNUA.png') }}" class="h-64px" alt="">
+                        @if($campaign->type === \App\Enums\CampaignType::Students)
+                            <img src="{{ asset('assets/images/FITA.png') }}" class="h-64px" alt="">
+                            <img src="{{ asset('assets/images/logoST.jpg') }}" class="h-64px" alt="">
+                        @endif
+
                     </div>
                     <h4 class="mb-0">TRA CỨU MÃ SỐ MAY MẮN</h4>
                     <span class="mb-3 d-block text-muted">Trong chương trình đăng ký tham gia học bổng để nhận nhiều phần quà hấp dẫn</span>
@@ -83,15 +88,24 @@
                                 <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
                                     <div class="info-general">
                                         <div class="info-other">
-                                            <p><b>Họ tên:</b> {{ $member->name }}</p>
+                                            <p><b>Họ tên:</b> {{ $member?->name }}</p>
                                             <p><b>Ngày sinh:</b> {{ $dobFormat }}</p>
-                                            <p><b>CCCD/CMT:</b> {{ $member->code_id }}</p>
-                                            <p><b>Số điện thoại:</b> {{ $member->phone }}</p>
-                                            <p><b>Các chương trình học bổng đã đăng ký:</b>
-                                                @foreach ($member->scholarships ?? [] as $item)
-                                                    {{ $scholarshipsLabel[$item] }}{{ !$loop->last ? ', ' : '' }}
-                                                @endforeach
-                                            </p>
+                                            <p><b>CCCD/CMT:</b> {{ $member?->code_id }}</p>
+                                            <p><b>Số điện thoại:</b> {{ $member?->phone }}</p>
+                                            @if($campaign->type == \App\Enums\CampaignType::News)
+                                                <p><b>Các chương trình học bổng đã đăng ký:</b>
+                                                    @foreach ($member->scholarships ?? [] as $item)
+                                                        {{ $scholarshipsLabel[$item] }}{{ !$loop->last ? ', ' : '' }}
+                                                    @endforeach
+                                                </p>
+                                            @else
+                                                <p>Mã sinh viên: {{$member?->code}}</p>
+                                                <p>Khoa: {{ $member?->faculty }}</p>
+                                                <p>Email: {{ $member?->email }}</p>
+                                                <p>Số điện thoại: {{ $member?->phone }}</p>
+                                                <p>Địa chỉ: {{ $member?->address }}</p>
+                                            @endif
+
                                         </div>
                                     </div>
                                     <div class="mt-3 text-center info-lucky-number">

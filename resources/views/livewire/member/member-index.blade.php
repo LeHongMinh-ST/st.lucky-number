@@ -34,6 +34,7 @@
                     <tr class="table-light">
                         <th>STT</th>
                         <th>Họ và tên</th>
+                        <th>Mã sinh viên</th>
                         <th>Ngày sinh</th>
                         <th>CCCD/CMT</th>
                         <th>Số điện thoại</th>
@@ -48,6 +49,7 @@
                         <tr>
                             <td>{{ $loop->index + 1 + $members->perPage() * ($members->currentPage() - 1) }}</td>
                             <td>{{ $member->name }}</td>
+                            <td>{{ $member->code }}</td>
                             <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
 
                             <td>{{ $member->code_id }}</td>

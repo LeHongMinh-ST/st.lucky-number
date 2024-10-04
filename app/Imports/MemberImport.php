@@ -27,7 +27,12 @@ class MemberImport implements ToCollection, WithStartRow, WithHeadingRow
         DB::beginTransaction();
         try {
             foreach ($collection as $row) {
-                Member::create([
+
+                $member = Member::query()->where([
+                    'code' => $row['ma_sv'],
+                    'campaign_id' => $this->campaignId
+                ]);
+                $data = [
                     'campaign_id' => $this->campaignId,
                     'name' => $row['ho_ten'],
                     'code' => $row['ma_sv'],
@@ -38,7 +43,15 @@ class MemberImport implements ToCollection, WithStartRow, WithHeadingRow
                     'email' => $row['email'],
                     'ethnicity' => $row['dan_toc'],
                     'school_year' => $row['nien_khoa'],
-                ]);
+                    'class' => $row['lop'],
+                    'faculty' => $row['khoa'],
+                ];
+                if (!$member) {
+                    Member::create($data);
+                } else {
+                    $member->update($data);
+                }
+
             }
 
             DB::commit();

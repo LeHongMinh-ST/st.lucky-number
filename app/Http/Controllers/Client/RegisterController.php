@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Enums\CampaignType;
 use App\Http\Controllers\Controller;
 use App\Models\Campaign;
 
@@ -13,6 +14,8 @@ class RegisterController extends Controller
         if ($campaign->isExpired()) {
             abort(404);
         }
-        return view('pages.client.register')->with(['campaignId' => $campaign->id]);
+
+        return view('pages.client.register')->with(['campaign' => $campaign]);
+
     }
 }
