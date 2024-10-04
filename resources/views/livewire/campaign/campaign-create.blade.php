@@ -47,6 +47,30 @@
                 </div>
             </div>
         </div>
+        <div class="card">
+            <div class="card-header bold">
+                <i class="ph-file"></i>
+                Loại
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <label for="title" class="col-form-label">
+                            Loại vòng quay <span class="required">*</span>
+                        </label>
+                        <select class="form-control" wire:model="type">
+                            @foreach (\App\Enums\CampaignType::cases() as $campaign)
+                                <option value="{{ $campaign->value }}">{{ \App\Enums\CampaignType::getDescription($campaign) }}</option>
+                            @endforeach
+                        </select>
+                        @error('type')
+                        <label id="error-type" class="validation-error-label text-danger"
+                               for="type">{{ $message }}</label>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-md-3 col-12">
         <div class="card">

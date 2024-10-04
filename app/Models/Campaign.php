@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\CampaignType;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +12,7 @@ class Campaign extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'key', 'end'];
+    protected $fillable = ['name', 'key', 'end', 'type'];
 
     public function members(): HasMany
     {
@@ -40,4 +41,8 @@ class Campaign extends Model
         $end = Carbon::make($this->end)->endOfDay()->timestamp;
         return $end < $now;
     }
+
+    protected $casts = [
+      'type' => CampaignType::class
+    ];
 }

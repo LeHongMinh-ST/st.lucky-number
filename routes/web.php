@@ -32,7 +32,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function (): void {
         Route::get('/', [CampaignController::class, 'index'])->name('admin.campaigns.index');
         Route::get('/create', [CampaignController::class, 'create'])->name('admin.campaigns.create');
         Route::get('/{id}/edit', [CampaignController::class, 'edit'])->name('admin.campaigns.edit');
-
+        Route::get('/download-template-student', [CampaignController::class, 'downloadTemplateStudent'])->name('admin.campaigns.downloadTemplateStudent');
     });
 
     Route::prefix('users')->group(function (): void {

@@ -26,6 +26,7 @@
                 <tr class="table-light">
                     <th>STT</th>
                     <th>Tên chiến dịch</th>
+                    <th>Loại</th>
                     <th>Key</th>
                     <th>Link vòng quay</th>
                     <th>Ngày tạo</th>
@@ -37,6 +38,9 @@
                     <tr>
                         <td>{{ $loop->index + 1 + $campaigns->perPage() * ($campaigns->currentPage() - 1)   }}</td>
                         <td><a href="{{route('admin.campaigns.edit', $campaign->id)}}">{{ $campaign->name }}</a></td>
+                        <td><span class="badge @if($campaign->type === \App\Enums\CampaignType::News) bg-success @else bg-info @endif ">
+                                {{ \App\Enums\CampaignType::getDescription($campaign->type) }}
+                            </span></td>
                         <td>{{ $campaign->key }}</td>
                         <td><a target="_blank" href="{{ route('lucky.number', ['campaign_id' => $campaign->id]) }}">{{ route('lucky.number', ['campaign_id' => $campaign->id]) }}</a></td>
                         <td>{{ $campaign->created_at->format('d/m/Y') }}</td>

@@ -17,6 +17,11 @@ class MemberIndex extends Component
 
     public string $search = '';
 
+    protected $listeners = [
+        'refresh-student' => '$refresh'
+    ];
+
+
     public function render()
     {
         $members = Member::query()
@@ -40,5 +45,10 @@ class MemberIndex extends Component
     public function export()
     {
         return Excel::download(new MemberExport($this->campaignId), 'ds-nguoi-choi.xlsx');
+    }
+
+    public function openImportModal()
+    {
+        $this->dispatch('open-import-modal');
     }
 }

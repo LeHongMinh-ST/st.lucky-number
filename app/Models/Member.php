@@ -9,7 +9,26 @@ class Member extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'code_id', 'dob', 'phone', 'campaign_id', 'scholarships'];
+    protected $fillable = [
+        'name',
+        'code_id',
+        'dob',
+        'phone',
+        'campaign_id',
+        'scholarships',
+        'code',
+        'email',
+        'address',
+        'address_now',
+        'is_inn',
+        'inn_owner',
+        'inn_owner_phone',
+        'class',
+        'faculty',
+        'gender',
+        'school_year',
+        'ethnicity',
+    ];
 
     protected $casts = [
         'scholarships' => 'array',
@@ -33,9 +52,9 @@ class Member extends Model
     public function scopeSearch($query, $search)
     {
         if ($search) {
-            $query->where('name', 'like', '%'.$search.'%')
-                ->orWhere('code_id', 'like', '%'.$search.'%')
-                ->orWhere('phone', 'like', '%'.$search.'%');
+            $query->where('name', 'like', '%' . $search . '%')
+                ->orWhere('code_id', 'like', '%' . $search . '%')
+                ->orWhere('phone', 'like', '%' . $search . '%');
         }
 
         return $query;

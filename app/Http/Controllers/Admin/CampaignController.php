@@ -7,6 +7,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class CampaignController extends Controller
 {
@@ -31,5 +32,11 @@ class CampaignController extends Controller
         return view('pages.campaign.update')->with([
             'id' => $id,
         ]);
+    }
+
+    public function downloadTemplateStudent(): BinaryFileResponse
+    {
+        $filePath = public_path('templates/student.xlsx');
+        return response()->download($filePath);
     }
 }

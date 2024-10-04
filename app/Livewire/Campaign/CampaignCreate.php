@@ -3,6 +3,7 @@
 namespace App\Livewire\Campaign;
 
 use App\Common\Constants;
+use App\Enums\CampaignType;
 use App\Models\Campaign;
 use Exception;
 use Illuminate\Http\RedirectResponse;
@@ -20,6 +21,9 @@ class CampaignCreate extends Component
 
     #[Validate('required', as: 'ngày kết thúc')]
     public string $end = '';
+
+    #[Validate('required', as: 'loại')]
+    public CampaignType $type = CampaignType::News;
 
 
     protected $listeners = [
@@ -48,6 +52,11 @@ class CampaignCreate extends Component
         return view('livewire.campaign.campaign-create');
     }
 
+    public function updateType($value)
+    {
+        $this->type = CampaignType::from($value);
+    }
+
     public function updateEndDate($value): void
     {
         if ($value) {
@@ -67,6 +76,7 @@ class CampaignCreate extends Component
                 'name' => $this->name,
                 'key' => Str::random(8),
                 'end' => Carbon::make($this->end),
+                'type' => $this->type
             ]);
             session()->flash('success', 'Tạo mới thành công!');
 

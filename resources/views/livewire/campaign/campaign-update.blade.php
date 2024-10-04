@@ -6,6 +6,7 @@
                <p class="mb-3">Key: {{ $key }}</a></p>
                <p class="mb-3">Link đăng ký: <a href="{{ route('lucky.register', $campaignId) }}">{{ route('lucky.register', $campaignId) }}</a></p>
                <p class="mb-3">Link vòng quay: <a href="{{ route('lucky.number', $campaignId) }}">{{ route('lucky.number', $campaignId) }}</a></p>
+               <p class="mb-3">Loại:  {{ $type ? \App\Enums\CampaignType::getDescription($type) : ''}}</p>
            </div>
            <div class="col-md-3 col-12 d-flex justify-content-end">
                <a href="{{route('admin.campaigns.index')}}" type="button" class="btn btn-warning d-block" style="height: max-content"><i class="ph-arrow-counter-clockwise"></i> Trở lại</a>

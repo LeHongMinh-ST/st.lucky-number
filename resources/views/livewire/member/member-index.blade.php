@@ -11,11 +11,16 @@
             </div>
             <div class="gap-2 d-flex">
                 <div>
+                    <button type="button" class="px-2 btn btn-success btn-icon" wire:click="openImportModal()">
+                        <i class="px-1 ph-microsoft-excel-logo"></i><span>Import Sinh viên</span>
+                    </button>
+
                     @if (count($members) > 0)
                         <button type="button" class="px-2 btn btn-success btn-icon" @click="$wire.export()">
                             <i class="px-1 ph-microsoft-excel-logo"></i><span>Xuất excel</span>
                         </button>
                     @endif
+
                     <button type="button" class="px-2 btn btn-light btn-icon" @click="$wire.$refresh">
                         <i class="px-1 ph-arrows-clockwise"></i><span>Tải lại</span>
                     </button>
@@ -60,6 +65,21 @@
         </div>
     </div>
     {{ $members->links('vendor.pagination.theme') }}
-
+    <livewire:member.member-import :campaignId="$campaignId"/>
 
 </div>
+
+@script
+<script>
+    window.addEventListener('open-import-modal', () => {
+        $('#model-import').modal('show')
+    })
+
+
+    window.addEventListener('close-import-modal', () => {
+        $('#model-import').modal('hide')
+    })
+
+
+</script>
+@endscript
