@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Client;
 
+use App\Enums\CampaignType;
+use App\Models\Campaign;
 use App\Models\Gift;
 use App\Models\Member;
 use App\Models\Result;
@@ -71,11 +73,16 @@ class LuckyNumber extends Component
             $results = Result::query()->where('campaign_id', $this->campaignId)
                 ->get();
 
+            $campaign = Campaign::query()->find($this->campaignId);
+
             $resultsMemberId = $results->pluck('member_id')->toArray();
 
             $memberIds = Member::query()
                 ->whereNotIn('id', [...$resultsMemberId, ...$this->numberMiss])
                 ->where('campaign_id', $this->campaignId)
+                ->when($campaign->type == CampaignType::Students, function ($query)  {
+                    $query->where('is_register', true);
+                })
                 ->get()->pluck('id')->toArray();
             if (count($memberIds) === 0) {
                 $this->dispatch('alert', type: 'error', message: 'Hết người chơi!');
