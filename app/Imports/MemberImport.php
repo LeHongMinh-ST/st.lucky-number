@@ -32,6 +32,8 @@ class MemberImport implements ToCollection, WithStartRow, WithHeadingRow
                     'code' => $row['ma_sv'],
                     'campaign_id' => $this->campaignId
                 ]);
+                Log::alert('member', $member->name);
+
                 $data = [
                     'campaign_id' => $this->campaignId,
                     'name' => $row['ho_ten'],
@@ -46,6 +48,7 @@ class MemberImport implements ToCollection, WithStartRow, WithHeadingRow
                     'class' => $row['lop'],
                     'faculty' => $row['khoa'],
                 ];
+
                 if (!$member) {
                     Member::create($data);
                 } else {
