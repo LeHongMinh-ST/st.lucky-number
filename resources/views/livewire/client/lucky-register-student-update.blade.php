@@ -85,7 +85,7 @@
 
                     <div class="mb-2">
                         <label for="name" class="col-form-label">
-                            Số điện thoại liên hệ <span class="required">*</span>
+                            Số điện thoại liên hệ phụ huynh <span class="required">*</span>
                         </label>
                         <input wire:model.live="family_phone" type="text" id="family_phone"
                                class="form-control">
