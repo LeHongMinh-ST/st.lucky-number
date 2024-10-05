@@ -52,7 +52,7 @@
                             <td>{{ $member->code }}</td>
                             <td>{{ $member->class }}</td>
                             <td>{{ $member->faculty }}</td>
-                            <td>{{ $member->gender == 'Nam' ? 'Nam' : 'Nữ' }}</td>
+                            <td>{{ $member->gender == 'male' ? 'Nam' : 'Nữ' }}</td>
                             <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
 
                             <td>{{ $member->phone }}</td>

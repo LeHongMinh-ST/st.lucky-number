@@ -34,10 +34,15 @@
                     <tr class="table-light">
                         <th>STT</th>
                         <th>Họ và tên</th>
+                        @if($campaign?->type == \App\Enums\CampaignType::Students)
+                            <th>Mã sinh viên</th>
+                        @endif
                         <th>Ngày sinh</th>
                         <th>CCCD/CMT</th>
                         <th>Số điện thoại</th>
-                        <th>Học bổng đăng ký</th>
+                        @if($campaign?->type == \App\Enums\CampaignType::News)
+                            <th>Học bổng đăng ký</th>
+                        @endif
                         <th class="text-center">Mã số may mắn</th>
                         <th class="text-center">Ngày đăng ký</th>
 
@@ -48,13 +53,18 @@
                         <tr>
                             <td>{{ $loop->index + 1 + $members->perPage() * ($members->currentPage() - 1) }}</td>
                             <td>{{ $member->name }}</td>
+                            @if($campaign?->type == \App\Enums\CampaignType::Students)
+                                <td>{{ $member->code }}</td>
+                            @endif
                             <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
 
                             <td>{{ $member->code_id }}</td>
                             <td>{{ $member->phone }}</td>
-                            <td>{{ $member->scholarshipLabel }}</td>
+                            @if($campaign?->type == \App\Enums\CampaignType::News)
+                                <td>{{ $member->scholarshipLabel }}</td>
+                            @endif
                             <td class="text-center">{{ $member->id }}</td>
-                            <td class="text-center">{{$member->campaign->type == \App\Enums\CampaignType::News ? $member->created_at->format('H:i d/m/Y') : $member?->register_at?->format('H:i d/m/Y')}}</td>
+                            <td class="text-center">{{$campaign?->type == \App\Enums\CampaignType::News ? $member->created_at->format('H:i d/m/Y') : $member?->register_at?->format('H:i d/m/Y')}}</td>
 
                         </tr>
                     @empty

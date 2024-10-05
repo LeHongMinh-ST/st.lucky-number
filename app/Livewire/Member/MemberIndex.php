@@ -19,6 +19,8 @@ class MemberIndex extends Component
 
     public string $search = '';
 
+    public ?Campaign $campaign;
+
     protected $listeners = [
         'refresh-student' => '$refresh'
     ];
@@ -27,7 +29,7 @@ class MemberIndex extends Component
     public function render()
     {
         $campaign = Campaign::query()->find($this->campaignId);
-
+        $this->campaign = $campaign;
         $members = Member::query()
             ->search($this->search)
             ->where('campaign_id', $this->campaignId)

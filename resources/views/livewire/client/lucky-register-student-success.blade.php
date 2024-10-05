@@ -20,7 +20,7 @@
                                 <img src="{{ asset('assets/images/logoST.jpg') }}" class="h-64px" alt="">
                             </div>
                         </div>
-                        <h5 class="mb-3">CHƯƠNG TRÌNH QUAY SỐ TRÚNG THƯỞNG NĂM 2024</h5>
+                        <h5 class="mb-3">CHƯƠNG TRÌNH QUAY SỐ MAY MẮN</h5>
                         <h5 class=" mb-3">Đăng ký thành công <i class="ph-check-circle"></i></h5>
 
                     </div>

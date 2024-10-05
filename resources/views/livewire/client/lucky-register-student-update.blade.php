@@ -10,13 +10,15 @@
                             <img src="{{ asset('assets/images/FITA.png') }}" class="h-64px" alt="">
                             <img src="{{ asset('assets/images/logoST.jpg') }}" class="h-64px" alt="">
                         </div>
-                        <h4 class="mb-0">ĐĂNG KÝ THAM GIA QUAY THƯỞNG ĐỂ NHẬN NHIỀU PHẦN QUÀ HẤP DẪN</h4>
-                        <span class="mb-3 d-block text-muted">Thí sinh đăng ký tham gia quay thưởng bằng cách điền, gửi thông tin cá nhân để nhận được mã số may mắn. Khoa sẽ tổ chức quay số trúng thưởng và trao quà cho các thí sinh trúng thưởng</span>
+                        <h4 class="mb-0">Chương trình quay số may mắn</h4>
+                        <span class="mb-3 d-block text-muted">Sinh viên đăng ký tham gia quay thưởng bằng cách điền, gửi thông tin cá nhân để nhận được mã số may mắn. Khoa sẽ tổ chức quay số trúng thưởng và trao quà cho các thí sinh trúng thưởng</span>
                     </div>
                     <div class="mb-3">
-                        <h3>{{ $member->name }} - {{ $member->code }} </h3>
-                        <h3>Lớp {{ $member->class }}</h3>
-                        <h3>Khoa {{ $member->faculty }}</h3>
+                        <h3>
+                            {{ $member->name }} - {{ $member->code }} <br>
+                            Lớp {{ $member->class }}
+                            Khoa {{ $member->faculty }}
+                        </h3>
                     </div>
 
                     <div class="mb-2">
@@ -55,7 +57,7 @@
 
                     <div class="mb-2">
                         <label for="name" class="col-form-label">
-                            Địa chỉ<span class="required">*</span>
+                            Địa chỉ nhà<span class="required">*</span>
                         </label>
                         <input wire:model.live="address" type="text" id="address"
                                class="form-control">
@@ -131,7 +133,7 @@
                     <img class="login-image" src="{{ asset('assets/images/login.jpg') }}" alt="login">
                     <div class="line"></div>
                      <div class="login-note text-muted">
-                        Lưu ý: Thông tin sinh viên cần phải chính xác, Các sv nhập thông tin sai sẽ không được nhận quà.
+                        Lưu ý: Thông tin sinh viên cần phải chính xác, Các sinh viên nhập thông tin sai sẽ không được nhận quà.
                      </div>
                 </div>
             </div>

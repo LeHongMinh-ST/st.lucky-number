@@ -35,8 +35,6 @@ class LuckyNumber extends Component
             ->where('campaign_id', $this->campaignId)
             ->get();
 
-
-
         $giftCurrent = null;
         $turn = 1;
 

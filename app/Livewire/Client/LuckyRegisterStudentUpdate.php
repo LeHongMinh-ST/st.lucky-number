@@ -103,7 +103,8 @@ class LuckyRegisterStudentUpdate extends Component
         if (!$this->member->is_register) {
             $data = [
                 'is_register' => true,
-                'register_at' => Carbon::now()
+                'register_at' => Carbon::now(),
+                ...$data
             ];
         }
         Member::where('id', $this->member?->id)->update($data);
