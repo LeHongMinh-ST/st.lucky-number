@@ -15,9 +15,15 @@
                     <div class="text-center mb-3">
                         <div class="d-inline-flex align-items-center gap-1 justify-content-center mb-4 mt-2">
                             <div class="gap-1 mt-2 mb-4 d-inline-flex align-items-center justify-content-center">
-                                <img src="{{ asset('assets/images/VNUA.png') }}" class="h-64px" alt="">
-                                <img src="{{ asset('assets/images/FITA.png') }}" class="h-64px" alt="">
-                                <img src="{{ asset('assets/images/logoST.jpg') }}" class="h-64px" alt="">
+                                <a href="https://vnua.edu.vn">
+                                    <img src="{{ asset('assets/images/VNUA.png') }}" class="h-64px" alt="">
+                                </a>
+                                <a href="https://fita.vnua.edu.vn">
+                                    <img src="{{ asset('assets/images/FITA.png') }}" class="h-64px" alt="">
+                                </a>
+                                <a href="http://st-dse.vnua.edu.vn">
+                                    <img src="{{ asset('assets/images/logoST.jpg') }}" class="h-64px" alt="">
+                                </a>
                             </div>
                         </div>
                         <h5 class="mb-3">CHƯƠNG TRÌNH QUAY SỐ MAY MẮN</h5>

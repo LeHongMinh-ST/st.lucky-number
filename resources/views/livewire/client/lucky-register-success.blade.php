@@ -15,7 +15,9 @@
                 <div class="form-register" id="capture">
                     <div class="text-center mb-3">
                         <div class="d-inline-flex align-items-center gap-1 justify-content-center mb-4 mt-2">
-                            <img src="{{asset('assets/images/VNUA.png')}}" class="h-64px" alt="">
+                            <a href="https://vnua.edu.vn">
+                                <img src="{{ asset('assets/images/VNUA.png') }}" class="h-64px" alt="">
+                            </a>
                             {{--                                <img src="{{asset('assets/images/logoST.jpg')}}" class="h-64px" alt="">--}}
                         </div>
                         <h5 class="mb-3">CHƯƠNG TRÌNH HỌC BỔNG NĂM 2024</h5>

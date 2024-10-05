@@ -8,9 +8,15 @@
                         <div class="form-register">
                             <div class="mb-3 text-center">
                                 <div class="gap-1 mt-2 mb-4 d-inline-flex align-items-center justify-content-center">
-                                    <img src="{{ asset('assets/images/VNUA.png') }}" class="h-64px" alt="">
-                                    <img src="{{ asset('assets/images/FITA.png') }}" class="h-64px" alt="">
-                                    <img src="{{ asset('assets/images/logoST.jpg') }}" class="h-64px" alt="">
+                                    <a href="https://vnua.edu.vn">
+                                        <img src="{{ asset('assets/images/VNUA.png') }}" class="h-64px" alt="">
+                                    </a>
+                                    <a href="https://fita.vnua.edu.vn">
+                                        <img src="{{ asset('assets/images/FITA.png') }}" class="h-64px" alt="">
+                                    </a>
+                                    <a href="http://st-dse.vnua.edu.vn">
+                                        <img src="{{ asset('assets/images/logoST.jpg') }}" class="h-64px" alt="">
+                                    </a>
                                 </div>
                                 <h4 class="mb-0">Chương trình quay số may mắn</h4>
                                 <span class="mb-3 d-block text-muted">Sinh viên đăng ký tham gia quay thưởng bằng cách điền, gửi thông tin cá nhân để nhận được mã số may mắn. Khoa sẽ tổ chức quay số trúng thưởng và trao quà cho các thí sinh trúng thưởng</span>
@@ -52,7 +58,7 @@
                                 </button>
                                 <button wire:loading.remove type="button" class="btn btn-primary" wire:click="check()">
                                     <i class="ph-telegram-logo"></i>
-                                    Kiểm tra
+                                    Đăng nhập
                                 </button>
                             </div>
                         </div>

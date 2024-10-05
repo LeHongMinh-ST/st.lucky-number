@@ -4,10 +4,16 @@
             <div class="row">
                 <div class="mb-3 text-center">
                     <div class="gap-1 mt-2 mb-4 d-inline-flex align-items-center justify-content-center">
-                        <img src="{{ asset('assets/images/VNUA.png') }}" class="h-64px" alt="">
+                        <a href="https://vnua.edu.vn">
+                            <img src="{{ asset('assets/images/VNUA.png') }}" class="h-64px" alt="">
+                        </a>
                         @if($campaign->type === \App\Enums\CampaignType::Students)
-                            <img src="{{ asset('assets/images/FITA.png') }}" class="h-64px" alt="">
-                            <img src="{{ asset('assets/images/logoST.jpg') }}" class="h-64px" alt="">
+                            <a href="https://fita.vnua.edu.vn">
+                                <img src="{{ asset('assets/images/FITA.png') }}" class="h-64px" alt="">
+                            </a>
+                            <a href="http://st-dse.vnua.edu.vn">
+                                <img src="{{ asset('assets/images/logoST.jpg') }}" class="h-64px" alt="">
+                            </a>
                         @endif
 
                     </div>

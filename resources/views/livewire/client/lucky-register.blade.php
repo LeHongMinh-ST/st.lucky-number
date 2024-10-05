@@ -8,7 +8,9 @@
                         <div class="form-register">
                             <div class="mb-3 text-center">
                                 <div class="gap-1 mt-2 mb-4 d-inline-flex align-items-center justify-content-center">
-                                    <img src="{{ asset('assets/images/VNUA.png') }}" class="h-64px" alt="">
+                                    <a href="https://vnua.edu.vn">
+                                        <img src="{{ asset('assets/images/VNUA.png') }}" class="h-64px" alt="">
+                                    </a>
                                     {{--                                <img src="{{asset('assets/images/logoST.jpg')}}" class="h-64px" alt=""> --}}
                                 </div>
                                 <h4 class="mb-0">ĐĂNG KÝ THAM GIA HỌC BỔNG ĐỂ NHẬN NHIỀU PHẦN QUÀ HẤP DẪN</h4>
