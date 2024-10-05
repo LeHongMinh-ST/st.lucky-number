@@ -36,6 +36,15 @@ class LuckyRegisterStudentUpdate extends Component
     #[Validate(as: 'số điện thoại chủ trọ')]
     public ?string $inn_owner_phone;
 
+    #[Validate(as: 'địa chỉ chủ trọ')]
+    public ?string $inn_owner_address;
+
+    #[Validate(as: 'phụ huynh')]
+    public ?string $family;
+
+    #[Validate(as: 'số điẹn thoại phụ huynh')]
+    public ?string $family_phone;
+
     public function setMember(?Member $member): void
     {
         $this->email = $member?->email;
@@ -46,6 +55,9 @@ class LuckyRegisterStudentUpdate extends Component
         $this->is_inn = $member?->is_inn;
         $this->inn_owner = $member?->inn_owner;
         $this->inn_owner_phone = $member?->inn_owner_phone;
+        $this->inn_owner_address = $member?->inn_owner_address;
+        $this->family = $member?->family;
+        $this->family_phone = $member?->family_phone;
     }
 
     public function rules(): array
@@ -66,10 +78,12 @@ class LuckyRegisterStudentUpdate extends Component
             'address' => [
                 'required',
             ],
-            'address_now' => [
+            'family' => [
                 'required',
             ],
-
+            'family_phone' => [
+                'required',
+            ],
         ];
 
         if ($this->is_inn) {
@@ -79,6 +93,11 @@ class LuckyRegisterStudentUpdate extends Component
             ];
 
             $rule['inn_owner_phone'] = [
+                'required',
+                'max:255',
+            ];
+
+            $rule['inn_owner_address'] = [
                 'required',
                 'max:255',
             ];
@@ -99,6 +118,9 @@ class LuckyRegisterStudentUpdate extends Component
             'is_inn' => $this->is_inn,
             'inn_owner' => $this->inn_owner ?? '',
             'inn_owner_phone' => $this->inn_owner_phone ?? '',
+            'inn_owner_address' => $this->inn_owner_address ?? '',
+            'family' => $this->family,
+            'family_phone' => $this->family_phone,
         ];
         if (!$this->member->is_register) {
             $data = [

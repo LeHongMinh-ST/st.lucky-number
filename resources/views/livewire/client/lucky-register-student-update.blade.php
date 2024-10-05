@@ -16,15 +16,15 @@
                                 <img src="{{ asset('assets/images/logoST.jpg') }}" class="h-64px" alt="">
                             </a>
                         </div>
-                        <h4 class="mb-0">Chương trình quay số may mắn</h4>
+                        <h3 class="mb-0">Chương trình quay số may mắn</h3>
                         <span class="mb-3 d-block text-muted">Sinh viên đăng ký tham gia quay thưởng bằng cách điền, gửi thông tin cá nhân để nhận được mã số may mắn. Khoa sẽ tổ chức quay số trúng thưởng và trao quà cho các thí sinh trúng thưởng</span>
                     </div>
                     <div class="mb-3">
-                        <h3>
+                        <h5>
                             {{ $member->name }} - {{ $member->code }} <br>
                             Lớp {{ $member->class }}
                             Khoa {{ $member->faculty }}
-                        </h3>
+                        </h5>
                     </div>
 
                     <div class="mb-2">
@@ -75,7 +75,7 @@
 
                     <div class="mb-2">
                         <label for="name" class="col-form-label">
-                            Nơi ở hiện tại <span class="required">*</span>
+                             Ký túc xá
                         </label>
                         <input wire:model.live="address_now" type="text" id="address_now"
                                class="form-control">
@@ -110,9 +110,9 @@
 
                         <div class="mb-2">
                             <label for="name" class="col-form-label">
-                                Số điẹn thoại chủ trọ <span class="required">*</span>
+                                Số điện thoại chủ trọ <span class="required">*</span>
                             </label>
-                            <input wire:model.live="inn_owner_phone" type="text" id="inn_owner"
+                            <input wire:model.live="inn_owner_phone" type="text" id="inn_owner_phone"
                                    class="form-control">
                             @error('inn_owner_phone')
                             <label id="error-inn_owner_phone" class="validation-error-label text-danger"
@@ -120,7 +120,43 @@
                             @enderror
                         </div>
 
+                        <div class="mb-2">
+                            <label for="name" class="col-form-label">
+                                Địa chỉ trọ <span class="required">*</span>
+                            </label>
+                            <input wire:model.live="inn_owner_address" type="text" id="inn_owner_address"
+                                   class="form-control">
+                            @error('inn_owner_address')
+                            <label id="error-inn_owner_address" class="validation-error-label text-danger"
+                                   for="inn_owner_address">{{ $message }}</label>
+                            @enderror
+                        </div>
+
                     @endif
+
+                    <div class="mb-2">
+                        <label for="name" class="col-form-label">
+                            Phụ huynh <span class="required">*</span>
+                        </label>
+                        <input wire:model.live="family" type="text" id="family"
+                               class="form-control">
+                        @error('family')
+                        <label id="error-family" class="validation-error-label text-danger"
+                               for="family">{{ $message }}</label>
+                        @enderror
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="name" class="col-form-label">
+                            Số điện thoại liên hệ <span class="required">*</span>
+                        </label>
+                        <input wire:model.live="family_phone" type="text" id="family_phone"
+                               class="form-control">
+                        @error('family_phone')
+                        <label id="error-family" class="validation-error-label text-danger"
+                               for="family_phone">{{ $message }}</label>
+                        @enderror
+                    </div>
 
                     <div class="mt-3  d-flex justify-content-end">
                         <button wire:loading wire:target="update" type="button" class="btn btn-primary">

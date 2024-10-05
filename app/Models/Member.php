@@ -29,7 +29,10 @@ class Member extends Model
         'school_year',
         'ethnicity',
         'is_inn',
-        'is_register'
+        'is_register',
+        'inn_owner_address',
+        'family',
+        'family_phone'
     ];
 
     protected $casts = [
