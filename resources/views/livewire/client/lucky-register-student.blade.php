@@ -14,7 +14,7 @@
                                     <a href="https://fita.vnua.edu.vn">
                                         <img src="{{ asset('assets/images/FITA.png') }}" class="h-64px" alt="">
                                     </a>
-                                    <a href="http://st-dse.vnua.edu.vn">
+                                    <a href="https://fita.vnua.edu.vn">
                                         <img src="{{ asset('assets/images/logoST.jpg') }}" class="h-64px" alt="">
                                     </a>
                                 </div>

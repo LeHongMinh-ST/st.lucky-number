@@ -21,7 +21,7 @@
                                 <a href="https://fita.vnua.edu.vn">
                                     <img src="{{ asset('assets/images/FITA.png') }}" class="h-64px" alt="">
                                 </a>
-                                <a href="http://st-dse.vnua.edu.vn">
+                                <a href="https://fita.vnua.edu.vn">
                                     <img src="{{ asset('assets/images/logoST.jpg') }}" class="h-64px" alt="">
                                 </a>
                             </div>
@@ -35,7 +35,7 @@
                             <div class="info-name">
                                 <p style="font-size: 24px"> Xin chào bạn <b style="font-size: 36px">{{ $member?->name }}</b>
                                 </p>
-                                <p>Cám ơn bạn đã đăng ký tham gia chương trình học bổng năm 2024 của Khoa Công nghệ thông tin - Học viện Nông nghiệp Việt Nam!
+                                <p>Cám ơn bạn đã đăng ký tham gia chương trình quay thưởng của Khoa Công nghệ thông tin - Học viện Nông nghiệp Việt Nam!
                                     <br> Dưới đây là thông tin đăng ký và mã số may mắn của bạn:</p>
                             </div>
                             <div class="info-other">

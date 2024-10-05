@@ -12,7 +12,7 @@
                             <a href="https://fita.vnua.edu.vn">
                                 <img src="{{ asset('assets/images/FITA.png') }}" class="h-64px" alt="">
                             </a>
-                            <a href="http://st-dse.vnua.edu.vn">
+                            <a href="https://fita.vnua.edu.vn">
                                 <img src="{{ asset('assets/images/logoST.jpg') }}" class="h-64px" alt="">
                             </a>
                         </div>
@@ -72,7 +72,29 @@
                                for="address">{{ $message }}</label>
                         @enderror
                     </div>
+                    <div class="mb-2">
+                        <label for="name" class="col-form-label">
+                            Phụ huynh <span class="required">*</span>
+                        </label>
+                        <input wire:model.live="family" type="text" id="family"
+                               class="form-control">
+                        @error('family')
+                        <label id="error-family" class="validation-error-label text-danger"
+                               for="family">{{ $message }}</label>
+                        @enderror
+                    </div>
 
+                    <div class="mb-2">
+                        <label for="name" class="col-form-label">
+                            Số điện thoại liên hệ <span class="required">*</span>
+                        </label>
+                        <input wire:model.live="family_phone" type="text" id="family_phone"
+                               class="form-control">
+                        @error('family_phone')
+                        <label id="error-family" class="validation-error-label text-danger"
+                               for="family_phone">{{ $message }}</label>
+                        @enderror
+                    </div>
                     <div class="mb-2">
                         <label for="name" class="col-form-label">
                              Ký túc xá
@@ -134,29 +156,7 @@
 
                     @endif
 
-                    <div class="mb-2">
-                        <label for="name" class="col-form-label">
-                            Phụ huynh <span class="required">*</span>
-                        </label>
-                        <input wire:model.live="family" type="text" id="family"
-                               class="form-control">
-                        @error('family')
-                        <label id="error-family" class="validation-error-label text-danger"
-                               for="family">{{ $message }}</label>
-                        @enderror
-                    </div>
 
-                    <div class="mb-2">
-                        <label for="name" class="col-form-label">
-                            Số điện thoại liên hệ <span class="required">*</span>
-                        </label>
-                        <input wire:model.live="family_phone" type="text" id="family_phone"
-                               class="form-control">
-                        @error('family_phone')
-                        <label id="error-family" class="validation-error-label text-danger"
-                               for="family_phone">{{ $message }}</label>
-                        @enderror
-                    </div>
 
                     <div class="mt-3  d-flex justify-content-end">
                         <button wire:loading wire:target="update" type="button" class="btn btn-primary">
