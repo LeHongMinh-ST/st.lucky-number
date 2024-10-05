@@ -27,13 +27,13 @@
                             </div>
                         </div>
                         <h5 class="mb-3">CHƯƠNG TRÌNH QUAY SỐ MAY MẮN</h5>
-                        <h5 class=" mb-3">Đăng ký thành công <i class="ph-check-circle"></i></h5>
+                        <h5 class="mb-3 text-success">Đăng ký thành công <i class="ph-check-circle"></i></h5>
 
                     </div>
                     <div class="mb-2 ps-2 pe-2 ps-md-3 pe-md-3 ps-lg-5 pe-lg-5">
                         <div class="info-general">
                             <div class="info-name">
-                                <p style="font-size: 24px"> Xin chào bạn <b style="font-size: 36px">{{ $member?->name }}</b>
+                                <p style="font-size: 24px"> Xin chào bạn <b style="font-size: 28px">{{ $member?->name }}</b>
                                 </p>
                                 <p>Cám ơn bạn đã đăng ký tham gia chương trình quay thưởng của Khoa Công nghệ thông tin - Học viện Nông nghiệp Việt Nam!
                                     <br> Dưới đây là thông tin đăng ký và mã số may mắn của bạn:</p>

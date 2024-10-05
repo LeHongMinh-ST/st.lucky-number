@@ -20,11 +20,10 @@
                         <span class="mb-3 d-block text-muted">Sinh viên đăng ký tham gia quay thưởng bằng cách điền, gửi thông tin cá nhân để nhận được mã số may mắn. Khoa sẽ tổ chức quay số trúng thưởng và trao quà cho các thí sinh trúng thưởng</span>
                     </div>
                     <div class="mb-3">
-                        <h5>
+                        <h6>
                             {{ $member->name }} - {{ $member->code }} <br>
-                            Lớp {{ $member->class }}
-                            Khoa {{ $member->faculty }}
-                        </h5>
+                            Lớp {{ $member->class }} - Khoa {{ $member->faculty }}
+                        </h6>
                     </div>
 
                     <div class="mb-2">
@@ -175,7 +174,7 @@
                     <img class="login-image" src="{{ asset('assets/images/login.jpg') }}" alt="login">
                     <div class="line"></div>
                      <div class="login-note text-muted">
-                        Lưu ý: Thông tin sinh viên cần phải chính xác, Các sinh viên nhập thông tin sai sẽ không được nhận quà.
+                        Lưu ý: Thông tin sinh viên cần phải chính xác, các sinh viên nhập thông tin sai sẽ không được nhận quà.
                      </div>
                 </div>
             </div>
