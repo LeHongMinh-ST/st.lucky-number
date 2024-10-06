@@ -39,7 +39,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="name" class="col-form-label">
-                           Email<span class="required">*</span>
+                            Email<span class="required">*</span>
                         </label>
                         <input wire:model.live="email" type="text" id="email"
                                class="form-control">
@@ -94,25 +94,31 @@
                                for="family_phone">{{ $message }}</label>
                         @enderror
                     </div>
-                    <div class="mb-2">
-                        <label for="name" class="col-form-label">
-                             Phòng ký túc xá @if(!$is_inn) <span class="required">*</span> @endif
-                        </label>
-                        <input wire:model.live="address_now" type="text" id="address_now"
-                               class="form-control">
-                        @error('address_now')
-                        <label id="error-address_now" class="validation-error-label text-danger"
-                               for="address_now">{{ $message }}</label>
-                        @enderror
-                    </div>
-
+                    @if(!$is_inn)
+                        <div class="mb-2">
+                            <label for="name" class="col-form-label">
+                                Phòng ký túc xá
+                            </label>
+                            <input wire:model.live="address_now" type="text" id="address_now"
+                                   class="form-control">
+                            @error('address_now')
+                            <label id="error-address_now" class="validation-error-label text-danger"
+                                   for="address_now">{{ $message }}</label>
+                            @enderror
+                        </div>
+                    @endif
                     <div class="mb-2">
                         <label for="phone" class="col-form-label">
                             Có ở trọ không ?
                         </label>
                         <div class="form-check form-switch mb-2">
-                            <input type="checkbox" class="form-check-input"  @if($is_inn) checked @endif  wire:model.live="is_inn" id="is_inn">
-                            <label class="form-check-label" for="is_inn">@if($is_inn) Có @else Không @endif</label>
+                            <input type="checkbox" class="form-check-input" @if($is_inn) checked
+                                   @endif  wire:model.live="is_inn" id="is_inn">
+                            <label class="form-check-label" for="is_inn">@if($is_inn)
+                                    Có
+                                @else
+                                    Không
+                                @endif</label>
                         </div>
                     </div>
 
@@ -156,15 +162,22 @@
                     @endif
 
 
-
                     <div class="mt-3  d-flex justify-content-end">
                         <button wire:loading wire:target="update" type="button" class="btn btn-primary">
                             <i class="ph-circle-notch spinner"></i>
-                            @if($member?->is_register) Cập nhật @else Đăng ký @endif
+                            @if($member?->is_register)
+                                Cập nhật
+                            @else
+                                Đăng ký
+                            @endif
                         </button>
                         <button wire:loading.remove type="button" class="btn btn-primary" wire:click="update()">
                             <i class="ph-telegram-logo"></i>
-                            @if($member?->is_register) Cập nhật @else Đăng ký @endif
+                            @if($member?->is_register)
+                                Cập nhật
+                            @else
+                                Đăng ký
+                            @endif
                         </button>
                     </div>
                 </div>
@@ -173,9 +186,10 @@
                 <div class="register-image-wrapper">
                     <img class="login-image" src="{{ asset('assets/images/login.jpg') }}" alt="login">
                     <div class="line"></div>
-                     <div class="login-note text-muted">
-                        Lưu ý: Thông tin sinh viên cần phải chính xác, các sinh viên nhập thông tin sai sẽ không được nhận quà.
-                     </div>
+                    <div class="login-note text-muted">
+                        Lưu ý: Thông tin sinh viên cần phải chính xác, các sinh viên nhập thông tin sai sẽ không được
+                        nhận quà.
+                    </div>
                 </div>
             </div>
         </div>

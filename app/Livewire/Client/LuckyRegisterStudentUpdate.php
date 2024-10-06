@@ -101,10 +101,6 @@ class LuckyRegisterStudentUpdate extends Component
                 'required',
                 'max:255',
             ];
-        } else {
-            $rule['address_now'] = [
-                'required',
-            ];
         }
 
         return $rule;
