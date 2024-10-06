@@ -96,7 +96,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="name" class="col-form-label">
-                             Ký túc xá
+                             Phòng ký túc xá @if(!$is_inn) <span class="required">*</span> @endif
                         </label>
                         <input wire:model.live="address_now" type="text" id="address_now"
                                class="form-control">

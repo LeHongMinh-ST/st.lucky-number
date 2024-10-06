@@ -34,9 +34,11 @@ class MemberIndex extends Component
             ->search($this->search)
             ->where('campaign_id', $this->campaignId)
             ->when($campaign->type === CampaignType::Students, function ($q) {
-                return $q->where('is_register', true);
+                return $q->where('is_register', true)->orderBy('register_at', 'desc');
             })
-            ->orderBy('created_at', 'desc')
+            ->when($campaign->type !== CampaignType::Students, function ($q) {
+                return $q->orderBy('created_at', 'desc');
+            })
             ->paginate(Constants::PER_PAGE_ADMIN);
         $total = Member::query()
             ->where('campaign_id', $this->campaignId)

@@ -25,7 +25,7 @@ class LuckyRegisterStudentUpdate extends Component
     #[Validate(as: 'địa chỉ')]
     public ?string $address;
 
-    #[Validate(as: 'nơi ở hiện tại')]
+    #[Validate(as: 'Phòng ký túc xá')]
     public ?string $address_now;
 
     public ?bool $is_inn;
@@ -42,7 +42,7 @@ class LuckyRegisterStudentUpdate extends Component
     #[Validate(as: 'phụ huynh')]
     public ?string $family;
 
-    #[Validate(as: 'số điẹn thoại phụ huynh')]
+    #[Validate(as: 'số điện thoại phụ huynh')]
     public ?string $family_phone;
 
     public function setMember(?Member $member): void
@@ -100,6 +100,10 @@ class LuckyRegisterStudentUpdate extends Component
             $rule['inn_owner_address'] = [
                 'required',
                 'max:255',
+            ];
+        } else {
+            $rule['address_now'] = [
+                'required',
             ];
         }
 
