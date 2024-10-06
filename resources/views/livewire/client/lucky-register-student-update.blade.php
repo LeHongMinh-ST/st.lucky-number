@@ -17,7 +17,7 @@
                             </a>
                         </div>
                         <h3 class="mb-0">Chương trình quay số may mắn</h3>
-                        <span class="mb-3 d-block text-muted">Sinh viên đăng ký tham gia quay thưởng bằng cách điền, gửi thông tin cá nhân để nhận được mã số may mắn. Khoa sẽ tổ chức quay số trúng thưởng và trao quà cho các thí sinh trúng thưởng</span>
+                        <span class="mb-3 d-block text-muted">Sinh viên đăng ký tham gia chương trình quay số may mắn bằng cách điền, gửi thông tin cá nhân và thông tin liên hệ để nhận được mã số may mắn. Khoa sẽ tổ chức quay số may mắn và trao quà cho các sinh viên trúng thưởng</span>
                     </div>
                     <div class="mb-3">
                         <h6>
