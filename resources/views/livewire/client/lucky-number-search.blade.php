@@ -18,7 +18,12 @@
 
                     </div>
                     <h4 class="mb-0">TRA CỨU MÃ SỐ MAY MẮN</h4>
-                    <span class="mb-3 d-block text-muted">Trong chương trình đăng ký tham gia học bổng để nhận nhiều phần quà hấp dẫn</span>
+                    @if($campaign->type === \App\Enums\CampaignType::Students)
+                        <span class="mb-3 d-block text-muted">Trong chương trình đăng ký tham gia quay thưởng sinh viên</span>
+                    @else
+                        <span class="mb-3 d-block text-muted">Trong chương trình đăng ký tham gia học bổng để nhận nhiều phần quà hấp dẫn</span>
+
+                    @endif
                     <div class="line" style="margin: 10px auto 20px; background: #e5e5e5; width: 50% ;height: 1px;"></div>
                 </div>
             </div>
