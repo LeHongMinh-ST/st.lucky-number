@@ -62,6 +62,7 @@ class Member extends Model
         if ($search) {
             $query->where('name', 'like', '%' . $search . '%')
                 ->orWhere('code_id', 'like', '%' . $search . '%')
+                ->orWhere('code', 'like', '%' . $search . '%')
                 ->orWhere('phone', 'like', '%' . $search . '%');
         }
 
