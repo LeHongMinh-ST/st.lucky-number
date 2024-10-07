@@ -7,10 +7,14 @@ use App\Exports\ResultExport;
 use App\Models\Member;
 use App\Models\Result;
 use Livewire\Component;
+use Livewire\WithoutUrlPagination;
+use Livewire\WithPagination;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ResultIndex extends Component
 {
+    use WithPagination, WithoutUrlPagination;
+
     public string $campaignId = '';
 
     public string $search = '';
