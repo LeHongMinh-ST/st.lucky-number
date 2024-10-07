@@ -2,6 +2,8 @@
 
 namespace App\Exports;
 
+use App\Enums\CampaignType;
+use App\Models\Campaign;
 use App\Models\Member;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -14,6 +16,7 @@ class ResultExport implements FromView
 
     public function view(): View
     {
+
         return view('exports.result', [
             'members' => Member::query()
                 ->whereHas('results')
