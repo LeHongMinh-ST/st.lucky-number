@@ -22,7 +22,9 @@ class MemberExport implements FromView
                 ->when($campaign->type === CampaignType::Students, function ($q) {
                     return $q->where('is_register', true)->orderBy('register_at', 'desc');
                 })
-                ->where('campaign_id', $this->campaignId)->get()
+                ->where('campaign_id', $this->campaignId)->get(),
+            'campaign' => $campaign,
+
         ]);
     }
 }

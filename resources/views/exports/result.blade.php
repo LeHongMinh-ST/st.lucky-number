@@ -28,10 +28,10 @@
                 <td>{{ $member?->code ?? '' }}</td>
             @endif
             <td>{{ $member->name }}</td>
+            <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
             @if($campaign->type == \App\Enums\CampaignType::Students)
                 <td>{{ $member->class }}</td>
             @endif
-            <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
             <td>{{ $member->code_id }}</td>
             <td>{{ $member->phone }}</td>
             @if($campaign->type == \App\Enums\CampaignType::Students)
