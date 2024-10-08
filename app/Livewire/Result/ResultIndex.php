@@ -4,6 +4,7 @@ namespace App\Livewire\Result;
 
 use App\Common\Constants;
 use App\Exports\ResultExport;
+use App\Models\Campaign;
 use App\Models\Member;
 use App\Models\Result;
 use Livewire\Component;
@@ -16,6 +17,8 @@ class ResultIndex extends Component
     use WithPagination, WithoutUrlPagination;
 
     public string $campaignId = '';
+
+    public ?Campaign $campaign = null;
 
     public string $search = '';
 
@@ -40,6 +43,7 @@ class ResultIndex extends Component
     public function mount($campaignId)
     {
         $this->campaignId = $campaignId;
+        $this->campaign = Campaign::query()->findOrFail($campaignId);
     }
 
 
