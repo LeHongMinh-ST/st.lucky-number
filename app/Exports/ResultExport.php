@@ -16,12 +16,14 @@ class ResultExport implements FromView
 
     public function view(): View
     {
+        $campaign = Campaign::query()->find($this->campaignId);
 
         return view('exports.result', [
             'members' => Member::query()
                 ->whereHas('results')
                 ->where('campaign_id', $this->campaignId)
-                ->with('giftResult')->get()
+                ->with('giftResult')->get(),
+            'campaign' => $campaign,
         ]);
     }
 }

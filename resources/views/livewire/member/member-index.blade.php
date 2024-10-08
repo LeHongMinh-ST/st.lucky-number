@@ -33,15 +33,19 @@
                 <thead>
                     <tr class="table-light">
                         <th>STT</th>
-                        <th>Họ và tên</th>
                         @if($campaign?->type == \App\Enums\CampaignType::Students)
                             <th>Mã sinh viên</th>
                         @endif
+                        <th>Họ và tên</th>
                         <th>Ngày sinh</th>
                         <th>CCCD/CMT</th>
                         <th>Số điện thoại</th>
                         @if($campaign?->type == \App\Enums\CampaignType::News)
                             <th>Học bổng đăng ký</th>
+                        @endif
+                        @if($campaign->type == \App\Enums\CampaignType::Students)
+                            <th>Email</th>
+                            <th>Số điện thoaại phụ huynh</th>
                         @endif
                         <th class="text-center">Mã số may mắn</th>
                         <th class="text-center">Ngày đăng ký</th>
@@ -52,16 +56,19 @@
                     @forelse($members as $member)
                         <tr>
                             <td>{{ $loop->index + 1 + $members->perPage() * ($members->currentPage() - 1) }}</td>
-                            <td>{{ $member->name }}</td>
                             @if($campaign?->type == \App\Enums\CampaignType::Students)
                                 <td>{{ $member->code }}</td>
                             @endif
+                            <td>{{ $member->name }}</td>
                             <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
-
                             <td>{{ $member->code_id }}</td>
                             <td>{{ $member->phone }}</td>
                             @if($campaign?->type == \App\Enums\CampaignType::News)
                                 <td>{{ $member->scholarshipLabel }}</td>
+                            @endif
+                            @if($campaign->type == \App\Enums\CampaignType::Students)
+                                <td>{{ $member->email }}</td>
+                                <td>{{ $member->family_phone }}</td>
                             @endif
                             <td class="text-center">{{ $member->id }}</td>
                             <td class="text-center">{{$campaign?->type == \App\Enums\CampaignType::News ? $member->created_at->format('H:i d/m/Y') : $member?->register_at?->format('H:i d/m/Y')}}</td>
