@@ -2,12 +2,20 @@
     <thead>
         <tr class="table-light">
             <th>STT</th>
+            @if($campaign->type == \App\Enums\CampaignType::Students)
+                <th>Mã sinh viên</th>
+            @endif
             <th>Họ và tên</th>
-            <th>Mã sinh viên</th>
             <th>Ngày sinh</th>
+            @if($campaign->type == \App\Enums\CampaignType::Students)
+                <th>Lớp</th>
+            @endif
             <th>CCCD/CMT</th>
             <th>Số điện thoại</th>
-            <th>Học bổng đăng ký</th>
+            @if($campaign->type == \App\Enums\CampaignType::Students)
+                <th>Email</th>
+                <th>Số điện thoaại phụ huynh</th>
+            @endif
             <th class="text-center">Mã số may mắn</th>
             <th class="text-center">Ngày đăng ký</th>
 
@@ -17,12 +25,20 @@
         @foreach ($members as $member)
             <tr>
                 <td>{{ $loop->index + 1 }}</td>
+                @if($campaign->type == \App\Enums\CampaignType::Students)
+                    <td>{{ $member?->code ?? '' }}</td>
+                @endif
                 <td>{{ $member->name }}</td>
-                <td>{{ $member?->code }}</td>
+                @if($campaign->type == \App\Enums\CampaignType::Students)
+                    <td>{{ $member->class }}</td>
+                @endif
                 <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
                 <td>{{ $member->code_id }}</td>
                 <td>{{ $member->phone }}</td>
-                <td>{{ $member->scholarshipLabel }}</td>
+                @if($campaign->type == \App\Enums\CampaignType::Students)
+                    <td>{{ $member->email }}</td>
+                    <td>{{ $member->family_phone }}</td>
+                @endif
                 <td class="text-center">{{ $member->id }}</td>
                 <td>{{ $member->created_at->format('H:i d/m/Y') }}</td>
             </tr>

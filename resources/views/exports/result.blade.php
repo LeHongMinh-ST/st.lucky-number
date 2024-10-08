@@ -7,6 +7,9 @@
         @endif
         <th>Họ và tên</th>
         <th>Ngày sinh</th>
+        @if($campaign->type == \App\Enums\CampaignType::Students)
+            <th>Lớp</th>
+        @endif
         <th>CCCD/CMT</th>
         <th>Số điện thoại</th>
         @if($campaign->type == \App\Enums\CampaignType::Students)
@@ -25,6 +28,9 @@
                 <td>{{ $member?->code ?? '' }}</td>
             @endif
             <td>{{ $member->name }}</td>
+            @if($campaign->type == \App\Enums\CampaignType::Students)
+                <td>{{ $member->class }}</td>
+            @endif
             <td>{{ \Carbon\Carbon::make($member->dob)->format('d/m/Y') }}</td>
             <td>{{ $member->code_id }}</td>
             <td>{{ $member->phone }}</td>
